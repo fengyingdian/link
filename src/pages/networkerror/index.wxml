@@ -1,0 +1,5 @@
+<!-- pages/profile/index.wxml -->
+<view class="page-container">
+  <text class="content"> {{content}} </text>
+  <view class="retry" bindtap="tapRetry"> 重新加载 </view>
+</view>

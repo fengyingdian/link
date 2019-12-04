@@ -1,0 +1,39 @@
+.popup {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: auto;
+  transition-property: background;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+
+.popup-down {
+  background: transparent;
+  transition-duration: .3s;
+}
+
+.popup-item {
+  width: 100vw;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition-property: top, opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+
+.popup-item-down {
+  top: 1000px;
+  opacity: 0;
+  transition-duration: 3s;
+}

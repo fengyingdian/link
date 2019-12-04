@@ -1,0 +1,21 @@
+/* components/loadingsmall/index.wxss */
+.container {
+  height: 78rpx;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  image {
+    width: 46rpx;
+    height: 46rpx;
+  }
+  text {
+    padding-left: 8px;
+    font-size: 28rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding-top: 2rpx;
+    color: #999;
+  }
+}

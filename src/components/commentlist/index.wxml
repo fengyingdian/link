@@ -1,0 +1,115 @@
+<!-- components/AvatarContainer/index.wxml -->
+<template name='comment-options'>
+  <view class="comment-options">
+    <text
+      wx:if="{{isLogin}}"
+      catch:tap="onRespond"
+      data-item="{{item}}"
+      data-type="respond"
+      hover-class="none"
+      class="comment-content">{{item.replyTo}} {{item.text}}</text>
+    <button
+      wx:else
+      open-type="getUserInfo"
+      catch:getuserinfo="onGetUserInfo"
+      data-item="{{item}}"
+      data-type="respond"
+      hover-class="none"
+      class="comment-content" >{{item.replyTo}} {{item.text}}</button>
+    <view class="options">
+      <block>
+        <view
+          wx:if="{{isLogin}}"
+          catch:tap="onRespond"
+          data-item="{{item}}"
+          data-type="respond"
+          hover-class="none"
+          class="option-container">
+          <text>{{item.time}}</text>
+          <!-- <text style="margin-left: 32rpx;">回复</text> -->
+        </view>
+        <button
+          wx:else
+          open-type="getUserInfo"
+          catch:getuserinfo="onGetUserInfo"
+          data-item="{{item}}"
+          data-type="respond"
+          hover-class="none"
+          class="option-container">
+          <text>{{item.time}}</text>
+          <!-- <text style="margin-left: 32rpx;">回复</text> -->
+        </button>
+      </block>
+      <view
+        class="option-container"
+        style="width:100rpx;justify-content:flex-end;"
+        data-item="{{item}}"
+        catch:tap="onShare">
+        <image class="share" src="/assets/icons/share.png"/>
+        <text style="margin-left: 12rpx;"> 分享 </text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="comment">
+  <view class="comment-container" style="background: {{selectedCommentBK}}" id="comment-{{item.id}}">
+    <view class="user">
+      <view class="avatar-container">
+        <view class="avatar-box" catchtap="onInfluencer" data-userid="{{item.userid}}" data-verifiedtype="{{item.verifiedType}}">
+          <image class='avatar' mode='aspectFill' src='{{item.avatar}}' />
+          <image hidden="{{item.verifiedType!=='vip'}}" class='brand' mode='aspectFill' src='/assets/icons/brand.png' />
+        </view>
+        <view class="profile">
+          <text class='name'>{{item.authorDisplayName}}</text>
+          <text wx:if="{{item.verifiedType=='vip'}}" class='info'>{{item.introduction}}</text>
+        </view>
+      </view>
+      <!-- <block wx:if="{{isLogin}}">
+        <view
+          class="thumb-container"
+          bindtap="onClap"
+          data-index="{{index}}"
+          data-type="clap"
+          hover-class="none">
+          <block wx:if="{{item.like_count > 0}}" class="text-box">
+            <text wx:if="{{item.is_liked}}" style='color: rgb(225, 40, 40)'>{{item.like_count}}</text>
+            <text wx:else style="color: #999">{{item.like_count}}</text>
+          </block>
+          <image wx:if="{{item.is_liked}}" src="/assets/icons/clap2.png" />
+          <image wx:else src="/assets/icons/clap1.png" />
+        </view>
+      </block>
+      <block wx:else>
+        <button
+          class="thumb-container"
+          open-type="getUserInfo"
+          bindgetuserinfo="onGetUserInfo"
+          data-index="{{index}}"
+          data-type="clap"
+          hover-class="none">
+          <block wx:if="{{item.like_count > 0}}" class="text-box">
+            <text style="color: #999">{{item.like_count}}</text>
+          </block>
+          <image src="/assets/icons/clap1.png" />
+        </button>
+      </block> -->
+    </view>
+    <template is="comment-options" data="{{item, isLogin}}"/>
+  </view>
+</template>
+
+<view class="commentlist" hidden="{{!comments || comments.length<1}}">
+  <leftsidetitle title="{{title}}" count="{{comments.length}}"/>
+  <block
+    wx:for="{{comments}}"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="id">
+    <block>
+      <template wx:if="{{item.id === selectedCommentId}}" is="comment" data="{{item, index, selectedCommentBK, isLogin}}" />
+      <template wx:else is="comment" data="{{item, index, isLogin}}" />
+      <view class="split" hidden="{{comments.length - 1 === index && isHideLastSplit}}" />
+    </block>
+  </block>
+</view>

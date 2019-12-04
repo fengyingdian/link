@@ -1,0 +1,5 @@
+<!--components/launchapp/index.wxml-->
+<view class="container row" catch:tap="onLoadMore">
+  <text class="comment"> 展开更多评论（{{count}}） </text>
+  <image class="more" src="/assets/icons/expand.png"/>
+</view>

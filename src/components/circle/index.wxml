@@ -1,0 +1,11 @@
+<!-- components/articlecard/index.wxml -->
+  <view class="circle-box" wx:if="{{article.circles.length > 0}}">
+    <block wx:for="{{article.circles}}" wx:key="id">
+      <form catchsubmit="onCircle" data-name="{{item.name}}" data-id="{{item.id}}" report-submit="true">
+        <button form-type="submit" class="circle" hover-class="none">
+          <image class="logo" src="/assets/icons/circle1.png"/>
+          <text class="name">{{item.name}}</text>
+        </button>
+      </form>
+    </block>
+  </view>

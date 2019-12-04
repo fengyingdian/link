@@ -1,0 +1,48 @@
+/* components/launchapp/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  background: #fff;
+  .cancle-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    width: 100rpx;
+    height: 100rpx;
+    image {
+      width: 30rpx;
+      height: 30rpx;
+    }
+  }
+  .poster {
+    width: 462rpx;
+    height: 100rpx;
+    box-shadow: 0 0 80rpx #bbb;
+    margin-top: 41rpx;
+  }
+  text {
+    color: #444;
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin: 48rpx 0 48rpx;
+  }
+  button {
+    margin-bottom: 84rpx;
+    font-size: 32rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    width: 192rpx;
+    color: #fff;
+    background: #e32828;
+    border-radius: 0;
+    text-align: center;
+  }
+}

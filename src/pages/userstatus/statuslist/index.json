@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "statuscard": "./statuscard/index",
+    "feedbottom": "../../../components/feedbottom/index",
+    "leftsidetitle": "../../../components/leftsidetitle/index"
+  },
+  "component": true
+}

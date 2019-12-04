@@ -1,0 +1,7 @@
+<import src="./wx-parser.wxml"/>
+
+<template name="wx-parser">
+  <block wx:for="{{wxParserData}}" wx:key="">
+    <template is="wx-parser-0" data="{{item}}"/>
+  </block>
+</template>

@@ -1,0 +1,37 @@
+/* components/launchapp/index.wxss */
+@import '../../common/scss/common.scss';
+
+.bottom-bar {
+  background: #fff;
+  height: 166rpx;
+  width: 100vw;
+  align-items: center;
+  border-top: 1rpx solid #efefef;
+  // !according to official document
+  // !https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html
+  // !the button {} should not work in a component
+  // !but it works here
+  .item {
+    align-items: center;
+    height: 166rpx;
+    width: 370rpx;
+    image {
+      height: 40rpx;
+      width: 40rpx;
+    }
+    text {
+      padding-left: 16rpx;
+      font-size: 32rpx;
+      color: black;
+    }
+  }
+  .middle {
+    height: 44rpx;
+    width: 1rpx;
+    background-color: #efefef;
+  }
+}
+
+.iphoneX-bottom{
+  padding-bottom: 8px;
+}

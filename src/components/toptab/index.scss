@@ -1,0 +1,91 @@
+/* components/toptab/index.wxss */
+.tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid rgba($color: grey, $alpha: 0.1);
+  .statusBar{
+    width: 100%;
+  }
+  .navigateBar{
+    width: 100vw;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: white;
+    .options {
+      position: fixed;
+      left: 16px;
+      height: 45px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #999;
+        overflow: hidden;
+        image {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+    .title {
+      position: fixed;
+      left: 200rpx;
+      width: 350rpx;
+      font-size: 20px;
+      font-weight: 900;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+  .select {
+    padding: 0px 175rpx 0;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 16px;
+    font-weight: 500;
+    .itemShow {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 200rpx;
+      color: #444;
+      .bar {
+        width: 160rpx;
+        height: 4px;
+        margin-top: 6px;
+        background-color: #E12828;
+      }
+    }
+    .itemHide {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 200rpx;
+      color: #999;
+      .hide {
+        height: 4px;
+        margin-top: 6px;
+      }
+    }
+  }
+}

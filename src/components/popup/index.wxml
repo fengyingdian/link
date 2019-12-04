@@ -1,0 +1,9 @@
+  <view
+    class="popup {{isPopUp?'':'popup-down'}}"
+    style="z-index: {{zIndex}}"
+    catch:tap="onTap"
+    hidden="{{!isShowPage}}">
+    <view class="col-center popup-item {{isPopUp?'':'popup-item-down'}}">
+      <slot></slot>
+    </view>
+  </view>

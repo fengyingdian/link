@@ -1,0 +1,7 @@
+<import src="../../../../common/wxml/user/index.wxml" />
+<import src="../../../../common/wxml/article/index.wxml" />
+
+<view class="article-container col-start">
+  <template is="user-form" data="{{avatar, nickname, description, time, comment}}" />
+  <template is="article-mask-hide-form" data="{{cover, maskHide, title, publisherDisplayName, commentCount}}"/>
+</view>

@@ -1,0 +1,11 @@
+<loadingpage status="{{loadingPageStatus}}" />
+
+<topbar />
+
+<newusernotification />
+
+<view class='col-center container'>
+  <view style="width:100%;height:{{marginTop}}px;" />
+  <articlelist />
+  <statuslist loadingInfo="{{loadingInfo}}" />
+</view>

@@ -1,0 +1,151 @@
+<template name="avatar" >
+  <button
+    class="col-start avatar-box"
+    form-type="submit"
+    hover-class="none">
+    <image class='avatar'
+      mode='aspectFill'
+      src='{{avatar}}'/>
+    <image
+      class='brand'
+      mode='aspectFill'
+      src='/assets/icons/brand.png'/>
+  </button>
+</template>
+
+<template name="avatar-form" >
+  <form
+    catch:submit="onInfluencer"
+    report-submit="true">
+    <template is="avatar" data="{{avatar}}"/>
+  </form>
+</template>
+
+<template name="profile">
+  <button
+    class="col-start profile"
+    form-type="submit"
+    hover-class="none">
+    <view class="title-box overflow-line-1">
+      <text class='name'>{{nickname}}</text>
+      <text class='desc'>{{description}}</text>
+    </view>
+    <text class="comment overflow-line-3">{{comment}}</text>
+  </button>
+</template>
+
+<template name="profile-with-time">
+  <button
+    class="col-start profile"
+    form-type="submit"
+    hover-class="none">
+    <view class="title-box overflow-line-1">
+      <text class='name'>{{nickname}}</text>
+      <text class='desc'>{{time || description}}</text>
+    </view>
+    <text class="comment overflow-line-3">{{comment}}</text>
+  </button>
+</template>
+
+<template name="profile-form">
+  <form
+    catchsubmit="onArticle"
+    report-submit="true">
+    <template is="profile" data="{{nickname, description, time, comment}}"/>
+  </form>
+</template>
+
+<template name="user-form">
+  <view
+    wx:if="{{avatar}}"
+    class="row-start user">
+    <template is="avatar-form" data="{{avatar}}"/>
+    <template is="profile-form" data="{{nickname, description: description || introduction, time, comment}}"/>
+  </view>
+</template>
+
+<template name="user-with-time">
+  <view
+    wx:if="{{avatar}}"
+    class="row-start user">
+    <template is="avatar" data="{{avatar}}"/>
+    <template is="profile-with-time" data="{{nickname, description: description || introduction, time, comment}}"/>
+  </view>
+</template>
+
+<template name="user-rect">
+  <view class="row-space-between" style="width:100%">
+    <view class="row-start" style="flex:1;align-items:center">
+      <image class="avatar-rect" mode='aspectFill' src="{{item.avatar}}" />
+      <view class="col-center profile-rect">
+        <view
+          class="row-start title-box-rect"
+          style="align-items:center">
+          <text class="overflow-line-1 name"> {{item.authorDisplayName}} </text>
+          <image wx:if="{{item.verifiedType === 'vip'}}" class='brand' mode='aspectFill' src='/assets/icons/brand_rect.png' />
+        </view>
+        <text
+          wx:if="{{item.introduction || item.desc}}"
+          class="overflow-line-1 info"> {{item.introduction || item.desc}} </text>
+      </view>
+    </view>
+    <button
+      class="row-end thumb-container"
+      style="align-items:center"
+      open-type="{{isLogin ? '' : 'getUserInfo'}}"
+      bindgetuserinfo="onGetUserInfo"
+      bindtap="{{isLogin ? 'onClap' : ''}}"
+      data-index="{{index}}"
+      data-item="{{item}}"
+      data-type="clap"
+      hover-class="none"
+      >
+      <block wx:if="{{item.like_count > 0}}" class="text-box">
+        <text style="color: #{{item.is_liked ? 'f52828' : '999'}}">{{item.like_count}}</text>
+      </block>
+      <image src="/assets/icons/clap{{item.is_liked ? '2' : '1'}}.png" />
+    </button>
+  </view>
+</template>
+
+<template name="user-rect-no-clap">
+  <view class="row-start" style="flex:1;align-items:center;width:100%">
+    <image class="avatar-rect" mode='aspectFill' src="{{avatar}}" />
+    <view class="col-center profile-rect" style="">
+      <view
+        class="row-start title-box-rect"
+        style="align-items:center">
+        <text class="overflow-line-1 name" style="flex:1"> {{nickname}} </text>
+        <image
+          wx:if="{{verifiedType === 'vip'}}"
+          class='brand'
+          mode='aspectFill'
+          src='/assets/icons/brand_rect.png' />
+      </view>
+      <text wx:if="{{description}}" class="overflow-line-1 info"> {{description}} </text>
+    </view>
+  </view>
+  <view class="overflow-line-3 comment-content" style="margin:18rpx 0 24rpx"> {{comment}}</view>
+</template>
+
+<template name="user-rect-no-clap-no-comment">
+  <view class="row-start" style="flex:1;align-items:center;width:100%">
+    <image class="avatar-rect" mode='aspectFill' src="{{avatar}}" />
+    <view class="col-center profile-rect" style="flex:1">
+      <view
+        class="row-start title-box-rect"
+        style="margin:0;overflow:hidden">
+        <text class="name"> {{nickname}} </text>
+        <image
+          wx:if="{{verifiedType === 'vip'}}"
+          class='brand'
+          style="margin: 12rpx 0 0 12rpx"
+          mode='aspectFill'
+          src='/assets/icons/brand_rect.png' />
+        <text class="overflow-line-1 description" style="flex:1;margin:0 0 0 18rpx"> {{introduction ? introduction : description ? description : ''}} </text>
+      </view>
+    </view>
+  </view>
+</template>
+
+

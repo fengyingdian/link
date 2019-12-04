@@ -1,0 +1,29 @@
+<!--components/tabtop/index.wxml-->
+<view class="container"
+  style="{{status === 0 ? 'background:#fff;border-bottom:1rpx solid #eee' : 'background:rgba(255,255,255,0);'}};z-index:{{zIndex}}">
+  <view class="statusBar" style="height:{{statusBar}}px;"/>
+  <view class="navigateBar">
+    <view class="options">
+      <view class="title-box {{show}}">
+        <image class="avatar" wx:if="{{avatarShow}}" src="{{avatar}}"/>
+        <text class="title"> {{title}} </text>
+      </view>
+      <view class="item-box"
+        wx:if="{{goBack}}"
+        catchtap="tapGoBack">
+        <image
+          class="image"
+          style="width:23px;height:23px;"
+          src="/assets/icons/return.png"/>
+      </view>
+      <view
+        class="item-box"
+        wx:if="{{home}}"
+        catchtap="tapHome">
+        <image
+          class="image"
+          src="/assets/icons/home.png"/>
+      </view>
+    </view>
+  </view>
+</view>

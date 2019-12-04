@@ -1,0 +1,125 @@
+@import '../../../common/scss/common.scss';
+
+.page-container {
+  align-items: center;
+  width: 100vw;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.container {
+  align-items: center;
+  width: 686rpx;
+  height: 30px;
+  margin: 6px 16rpx 6px;
+}
+
+.comment-bar {
+  align-items: center;
+  width: 100%;
+  height: 20px;
+}
+
+.handler {
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background: #ccc;
+}
+
+.comment-count {
+  position: relative;
+  left: -10px;
+  top: -6px;
+  font-size: 6px;
+  text-align: center;
+  margin: 1px 3px;
+  padding: 0 4px;
+  border-radius: 10px;
+  height: 10px;
+  line-height: 10px;
+  color: #fff;
+  background: #e23232;
+}
+
+.option-container {
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  line-height: 30px;
+  height: 30px;
+  margin: 0 0 0 24rpx;
+  justify-content:flex-end;
+  .option {
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    .option-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+  .name {
+    margin-left: 6px;
+  }
+}
+
+.launch-comment {
+  flex: 1;
+  align-items: center;
+  height: 30px;
+  border-radius: 30px;
+  background: #d2d2d2;
+}
+
+.image-box {
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  .image {
+    background: #eee;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.comment {
+  flex: 1;
+  padding: 0 4px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+  color: white;
+  outline: none;
+  border-radius: 3px;
+  &::after {
+    content: '';
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes example {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  67% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}

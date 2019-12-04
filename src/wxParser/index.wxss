@@ -1,0 +1,291 @@
+
+.wx-parser-section {
+  max-width: 100%;
+}
+
+.wx-parser-inline {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.wx-parser-div {
+  margin: 0;
+  padding: 0;
+}
+
+.wx-parser-p {
+  margin: 5rpx 0;
+}
+
+.wx-parser-p-img {
+  margin: 5rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wx-parser-br {
+  height: 1em;
+}
+
+.wx-parser-h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.wx-parser-h2 {
+  font-size: 1.5em;
+  margin: .75em 0;
+}
+
+.wx-parser-h3 {
+  font-size: 1.17em;
+  margin: .83em 0;
+}
+
+.wx-parser-h4 {
+  margin: 1.12em 0;
+}
+
+.wx-parser-h5 {
+  font-size: .83em;
+  margin: 1.5em 0;
+}
+
+.wx-parser-h6 {
+  font-size: .75em;
+  margin: 1.67em 0;
+}
+
+.wx-parser-h1,
+.wx-parser-h2,
+.wx-parser-h3,
+.wx-parser-h4,
+.wx-parser-h5,
+.wx-parser-h6,
+.wx-parser-b,
+.wx-parser-strong {
+  font-weight: bolder;
+}
+
+.wx-parser-i,
+.wx-parser-cite,
+.wx-parser-em,
+.wx-parser-var,
+.wx-parser-address {
+  font-style: italic;
+}
+
+.wx-parser-pre,
+.wx-parser-tt,
+.wx-parser-code,
+.wx-parser-kbd,
+.wx-parser-samp {
+  font-family: monospace;
+}
+
+.wx-parser-pre {
+  white-space: pre;
+}
+
+.wx-parser-big {
+  font-size: 1.17em
+}
+
+.wx-parser-small,
+.wx-parser-sub,
+.wx-parser-sup {
+  font-size: .83em
+}
+
+.wx-parser-sub {
+  vertical-align: sub;
+}
+
+.wx-parser-sup {
+  vertical-align: super;
+}
+
+.wx-parser-s,
+.wx-parser-strike,
+.wx-parser-del {
+  text-decoration: line-through;
+}
+
+.wx-parser-strong,
+.wx-parser-s {
+  display: inline;
+}
+
+.wx-parser-text {
+  /* font-size: inherit; */
+}
+
+.wx-parser-u {
+  text-decoration: underline;
+}
+
+.wx-parser-u {
+  text-decoration: underline;
+}
+
+.wx-parser-a {
+  color: deepskyblue;
+  word-break: break-all;
+  overflow: auto;
+}
+
+.wx-parser-video {
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.wx-parser-video-video {
+  width: 100%;
+}
+
+.wx-parser-audio {
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.wx-parser-audio-audio {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.wx-parser-img {
+  overflow: hidden;
+  max-width: 100%;
+  background: #ddd;
+}
+
+.wx-parser-blockquote {
+  margin: 0;
+  padding: 8rpx 20rpx 8rpx 20rpx;
+  font-family: Courier, Calibri, "宋体";
+  background: #f5f5f5;
+  border-left: 3rpx solid #dbdbdb;
+}
+
+.wx-parser-ul {
+  margin: 20rpx 10rpx;
+}
+
+.wx-parser-li {
+  margin: 10rpx 0;
+}
+
+.wx-parser-li,
+.wx-parser-li-inner {
+  display: flex;
+  align-items: baseline;
+}
+
+.wx-parser-li-text {
+  align-items: center;
+  line-height: 1em;
+}
+
+.wx-parser-li-circle {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  margin-right: 12rpx;
+  border-radius: 50%;
+}
+
+.wx-parser-li-square {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  margin-right: 5rpx;
+}
+
+.wx-parser-li-ring {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  border: 2rpx solid #333;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 5rpx;
+}
+
+.wx-parser-ol {
+  margin: 20rpx 10rpx;
+}
+
+.wx-parser-ol-li {
+  margin: 10rpx 0;
+}
+
+.wx-parser-ol-li,
+.wx-parser-ol-li-inner {
+  display: flex;
+  align-items: baseline;
+}
+
+.wx-parser-ol-li-text {
+  margin-right: 12rpx;
+  line-height: 1em;
+}
+
+.wx-parser-hidden {
+  display: none;
+}
+
+.wx-parser-tr {
+  display: flex;
+  border-right: 1rpx solid #e0e0e0;
+}
+
+.wx-parser-th,
+.wx-parser-td {
+  flex: 1;
+  padding: 5rpx;
+  font-size: 28rpx;
+  border-left: 1rpx solid #e0e0e0;
+  border-top: 1rpx solid #e0e0e0;
+  word-break: break-all;
+}
+
+.wx-parser-tr:last-child {
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.wx-parser-th {
+  background: #f0f0f0;
+}
+
+.wx-parser-hr {
+  border: 1rpx solid #DDD;
+  margin: 20rpx 0;
+}
+
+.wx-parser-pre, .wx-parser-code {
+  margin: 5rpx 0;
+  padding: 10rpx 10rpx;
+  border-radius: 8rpx;
+  background: #f8f8f8;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  overflow-x: auto;
+}
+
+.wx-qqmusic {
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  background: #fff;
+  color: #999;
+  border-radius: 40rpx;
+  box-shadow: 0 0 10rpx #999;
+}

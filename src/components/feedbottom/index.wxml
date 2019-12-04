@@ -1,0 +1,8 @@
+<!--components/loadingsmall/index.wxml-->
+  <view wx:if="{{hasMoreItem}}" class="col-center bottom">
+    <loadingsmall />
+  </view>
+  <view wx:else class="col-center tips-box">
+    <view class="tips-line" />
+    <text class="tips-text"> dear, 已经翻到底了呢 </text>
+  </view>

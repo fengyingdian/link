@@ -1,0 +1,6 @@
+dist/*
+src/utils/runtime.js
+src/node_modules/*
+src/utils/wxdraw.js
+src/utils/wxdraw.min.js
+src/wxParser/*

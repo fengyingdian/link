@@ -1,0 +1,19 @@
+@import '../../common/scss/common.scss';
+
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  overflow: auto;
+  opacity: 1;
+}
+
+.up {
+  opacity: 0;
+  transform: translate(0, -100%);
+  transition: transform linear 1s, opacity linear 1s;
+}

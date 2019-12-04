@@ -1,0 +1,89 @@
+<import src="../user/index.wxml"/>
+
+<template name="article-mask-hide">
+  <button
+    class="col-start"
+    form-type="submit"
+    hover-class="none">
+    <view class="cover-box-1 col-start">
+      <image
+        class="cover"
+        mode="aspectFill"
+        src="{{cover}}"
+        bindload="onCoverLoad"
+        binderror="onCoverError"/>
+      <view class="mask {{maskHide ? 'mask-hide' : ''}}" />
+    </view>
+    <text class="title title-1 overflow-line-2">{{title}}</text>
+    <text class="publisher publisher-1 overflow-line-1">{{publisherDisplayName}} {{commentCount > 1 ? commentCount + '评论' : ''}}</text>
+  </button>
+</template>
+
+<template name="article-mask-hide-form">
+  <form
+    catch:submit="onArticle"
+    report-submit="true">
+    <template is="article-mask-hide" data="{{cover, maskHide, title, publisherDisplayName, commentCount}}"/>
+  </form>
+</template>
+
+<template name="article-cover-show">
+  <view class="cover-box-2 col-start">
+    <image
+      class="cover {{coverShow ? 'cover-show' : ''}}"
+      mode="aspectFill"
+      src="{{cover}}"
+      bindload="onCoverLoad"
+      binderror="onCoverError" />
+    <view class="mask col-end">
+      <text class="title title-2 overflow-line-2">{{title}}</text>
+      <text class="publisher publisher-2 overflow-line-1">{{publisherDisplayName}} {{commentCount > 1 ? commentCount + '评论' : ''}}</text>
+    </view>
+  </view>
+</template>
+
+<template name="prime">
+  <view class="prime-title">
+    <text class="prime-badge" > 精选 </text>
+    <text class="prime-name"> {{nickname}}: </text>
+  </view>
+  <text class="prime-comment">{{comment}}</text>
+</template>
+
+<template name="article-mask-hide-form">
+  <form
+    catch:submit="onArticle"
+    report-submit="true">
+    <template is="article-mask-hide" data="{{cover, maskHide, title, publisherDisplayName, commentCount}}"/>
+  </form>
+</template>
+
+<template name="article-with-prime-form">
+  <form
+    catchsubmit="onArticle"
+    report-submit="true">
+    <button
+      class="col-start"
+      form-type="submit"
+      hover-class="none">
+      <template is="article-cover-show" data="{{cover, coverShow, title, publisherDisplayName, commentCount}}"/>
+      <template is="prime" data="{{...prime}}" />
+    </button>
+  </form>
+</template>
+
+<template name="article-with-user">
+  <form
+    catch:submit="onArticle"
+    report-submit="true">
+    <template is="user-with-time" data="{{...influencer}}"/>
+    <template is="article-mask-hide" data="{{cover, maskHide, title, publisherDisplayName, commentCount}}"/>
+  </form>
+</template>
+
+<template name="article-logo">
+  <view class="article-logo-container">
+    <view class="article-logo-row" />
+    <view class="article-logo-col" />
+  </view>
+</template>

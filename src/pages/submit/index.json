@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "navigatebar": "../../components/navigatebar/index",
+    "multitextinput": "./multitextinput/index",
+    "audioplayer": "./audioplayer/index",
+    "voicerecorder": "./voicerecorder/index",
+    "actionbutton": "./actionbutton/index",
+    "imagedisplay": "./imagedisplay/index"
+  },
+  "enablePullDownRefresh": false
+}

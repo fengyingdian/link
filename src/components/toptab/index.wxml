@@ -1,0 +1,24 @@
+<!-- components/tabtop/index.wxml -->
+<view class="tab">
+  <view class="statusBar" style="height:{{statusBar}}px;" />
+  <view class="navigateBar">
+    <text class="title">红板报·圈内</text>
+    <view class="options">
+      <navigator class="avatar" url="/pages/profile/index">
+        <image src="{{avatar}}"></image>
+      </navigator>
+    </view>
+  </view>
+  <view class="select">
+    <block wx:for="{{titles}}">
+      <view class="itemShow" wx:if="{{index==titleSelected}}" id="{{index}}">
+        <text>{{item.name}}</text>
+        <view class="bar" />
+      </view>
+      <view class='itemHide' wx:if="{{index!=titleSelected}}" bindtap='onTap' id="{{index}}">
+        <text>{{item.name}}</text>
+        <view class="hide" />
+      </view>
+    </block>
+  </view>
+</view>

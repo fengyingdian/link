@@ -1,0 +1,26 @@
+/* components/launchapp/index.wxss */
+.container {
+  margin: 24rpx 32rpx 0;
+  width: 686rpx;
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #ddd;
+}
+
+.more {
+  width: 24rpx;
+  height: 14rpx;
+  margin: 0 8rpx;
+}

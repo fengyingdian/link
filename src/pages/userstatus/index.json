@@ -1,0 +1,21 @@
+ {
+  "usingComponents": {
+    "articlecard": "./articlecard/index",
+    "launchapp": "./launchapp/index",
+    "launchcontact": "./launchcontact/index",
+    "toparticle": "./toparticle/index",
+    "topcomment": "./topcomment/index",
+    "statuslist": "./statuslist/index",
+    "articlecontent": "./articlecontent/index",
+    "launchcommentwithshare": "./launchcommentwithshare/index",
+    "posterview": "../../components/posterview/index",
+    "sharebar": "../../components/sharebar/index",
+    "navigatebar": "../../components/navigatebar/index",
+    "loading": "../../components/loading/index",
+    "launchingpage": "../../components/launchingpage/index",
+    "newusernotification": "../../components/newusernotification/index",
+    "expandfromright": "../../components/expandfromright/index",
+    "respondcomment": "../../components/respondcomment/index"
+  },
+  "enablePullDownRefresh": false
+}

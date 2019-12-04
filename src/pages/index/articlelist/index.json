@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "feedbottom": "../../../components/feedbottom/index",
+    "articlecard": "../articlecard/index",
+    "articlecardwithprime": "../articlecardwithprime/index"
+  },
+  "component": true
+}

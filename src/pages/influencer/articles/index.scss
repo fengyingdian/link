@@ -1,0 +1,25 @@
+/* pages/index/index.wxss */
+page {
+  background: white;
+}
+
+.tips {
+  width: 100vw;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #444;
+}
+
+.scroll-view {
+  overflow: auto;
+}
+
+.scroll-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  transition: .5s;
+}

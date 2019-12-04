@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "statuscard": "./statuscard/index",
+    "feedbottom": "../../../components/feedbottom/index"
+  },
+  "component": true
+}

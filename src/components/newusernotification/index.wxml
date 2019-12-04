@@ -1,0 +1,17 @@
+<!--components/launchapp/index.wxml-->
+<topnotification isShow="{{isShow}}" catch:hide="onHide">
+  <view class="row-space-between container" catch:tap="onHide">
+    <view class="row-start tip-box">
+      <text class="tip-text"> 点击 </text>
+      <image
+        class="tip-image"
+        src="/assets/icons/more_wechat.png" />
+      <text class="tip-text overflow-line-1"> 添加到我的小程序，精彩文章不错过 </text>
+    </view>
+    <view class="col-center cancle-box">
+      <image
+        class="cancle-image"
+        src="/assets/icons/cancle_white.png" />
+    </view>
+  </view>
+</topnotification>

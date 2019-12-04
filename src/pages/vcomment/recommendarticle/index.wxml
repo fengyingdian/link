@@ -1,0 +1,13 @@
+<!-- components/articlecard/index.wxml -->
+<recommendcardprime
+  wx:if="{{isShowPrimeComment}}"
+  article="{{article}}"
+  index="{{index}}"
+  recommendComments="{{topComments}}"
+  primeComments="{{primeComments}}"/>
+
+<recommendcard
+  wx:else
+  article="{{article}}"
+  index="{{index}}"
+  recommendComments="{{topComments}}"/>

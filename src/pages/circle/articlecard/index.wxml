@@ -1,0 +1,5 @@
+<import src="../../../common/wxml/article/index.wxml" />
+
+<view class="container col-start">
+  <template is="article-with-user" data="{{...article, cover, maskHide}}"/>
+</view>

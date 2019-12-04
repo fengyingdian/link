@@ -1,0 +1,39 @@
+@import '../../common/scss/common.scss';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  will-change: transform;
+  transition: all .6s ease;
+}
+
+.slot-container {
+  width: 100%;
+  align-items: center;
+}
+
+.cancle-box {
+  align-self: flex-start;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  margin: 0 0 0 32rpx;
+}
+
+.cancle {
+  width: 21px;
+  height: 21px;
+}
+
+.navigate-bar {
+  flex: 1;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}

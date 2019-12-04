@@ -1,0 +1,23 @@
+<!-- components/tabtop/index.wxml -->
+<view class="tab">
+  <view class="statusBar" style="height:{{statusBar}}px;" />
+  <view class="navigateBar">
+    <view class="options">
+      <button wx:if="{{isLogin}}"
+        class="avatar"
+        hover-class="none"
+        bindtap="onProfile">
+        <image src="{{avatar}}" />
+      </button>
+      <button
+        wx:else
+        class="avatar"
+        open-type="getUserInfo"
+        bindgetuserinfo="onGetUserInfo"
+        hover-class="none">
+        <image src="{{avatar}}" />
+      </button>
+    </view>
+    <text class="title"> {{title}} </text>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<view
+  class="col-center top-notification {{isShow ? '' : 'top-notification-up'}}"
+  style="{{isShow ? 'top:' + top + 'px': ''}}" >
+  <slot></slot>
+</view>

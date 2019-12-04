@@ -1,0 +1,21 @@
+<!-- components/articlecard/index.wxml -->
+<view
+  class="container">
+  <commentlist
+    title="{{'最新讨论'}}"
+    selectedCommentId="{{selectedCommentId}}"
+    isHideLastSplit="{{true}}"
+    maxlength="{{maxlength}}"
+    url="{{url}}"
+    comments="{{comments}}"
+    isLogin="{{isLogin}}"
+    catch:clap="onClapComment"
+    catch:respond="onRespondComment"
+    catch:share="onShareComment"
+    />
+  <block wx:if="{{maxlength - comments.length < 0}}">
+    <loadmorecomment
+      count="{{comments.length - maxlength}}"
+      catch:loadmorecomment="onLoadMoreComment" />
+  </block>
+</view>

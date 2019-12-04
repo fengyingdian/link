@@ -1,0 +1,40 @@
+
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  text-align:center;
+  text-decoration:none;
+  line-height: 1;
+  border-radius: 0;
+  -webkit-tap-highlight-color:transparent;
+  overflow: hidden;
+  color:#000;
+  background-color: transparent;
+}
+
+button::after {
+  border: none;
+}
+
+view {
+  max-width: 100%;
+}
+
+text {
+  font-size: 28rpx;
+  color: inherit;
+}

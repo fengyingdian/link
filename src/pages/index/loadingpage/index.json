@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "flyup": "../../components/flyup/index"
+  }
+}

@@ -1,0 +1,5 @@
+<!--components/loadingsmall/index.wxml-->
+<view class="container">
+  <image src="/assets/icons/loading.gif"/>
+  <text class="name" > 努力加载中... </text>
+</view>

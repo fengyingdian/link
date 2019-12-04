@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "navigatebar": "../../components/navigatebar/index",
+    "loading": "../../components/loading/index",
+    "articles": "./articles/index",
+    "circleheader": "./circleheader/index"
+  },
+  "onReachBottomDistance": 1000,
+  "enablePullDownRefresh": false
+}

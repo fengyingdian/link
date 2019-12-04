@@ -1,0 +1,32 @@
+/* pages/profile/index.wxss */
+page {
+  background-color: white;
+}
+
+.page-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  color: #444;
+  font-size: 36rpx;
+  margin: 200rpx 60rpx 0;
+}
+
+.retry {
+  margin: 40rpx;
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 200rpx;
+  color: #fff;
+  background: #e32828;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx #999;
+  text-align: center;
+}
+

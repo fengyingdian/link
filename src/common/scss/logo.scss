@@ -1,0 +1,33 @@
+$logo_red : "data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40' viewBox='0 0 500 500'%3E %3Cpath d='M0,0 L500,0 L500,500 L0,500 L0,0 Z' fill='rgba(255,255,255,0.1)' /%3E %3Cpath d='M200,200 L400,200 L400,100 L200,100 L200,200 Z' fill='rgba(255,255,255,0.25)' /%3E %3Cpath d='M200,200 L300,200 L300,301 L200,301 L200,200 Z' fill='rgba(255,255,255,0.4)' /%3E %3Cpath d='M0,500 L500,500 L500,0 L0,0 L0,500 Z M100,100 L400,100 L400,200 L300,200 L300,301 L200,301 L200,401 L100,401 L100,100 L100,100 Z' fill='%23E02828' /%3E %3C/svg%3E";
+$logo_grey: "data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40' viewBox='0 0 500 500'%3E %3Cpath d='M0,0 L500,0 L500,500 L0,500 L0,0 Z' fill='rgba(255,255,255,0.1)' /%3E %3Cpath d='M200,200 L400,200 L400,100 L200,100 L200,200 Z' fill='rgba(255,255,255,0.25)' /%3E %3Cpath d='M200,200 L300,200 L300,301 L200,301 L200,200 Z' fill='rgba(255,255,255,0.4)' /%3E %3Cpath d='M0,500 L500,500 L500,0 L0,0 L0,500 Z M100,100 L400,100 L400,200 L300,200 L300,301 L200,301 L200,401 L100,401 L100,100 L100,100 Z' fill='%23EEEEEE' /%3E %3C/svg%3E";
+
+.svg-red {
+  background-image: url($logo_red);
+  background-size: cover;
+  animation-name: square-spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.svg-grey {
+  background-image: url($logo_grey);
+  background-size: cover;
+  animation-name: square-spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes square-spin {
+  25% {
+    transform: perspective(100px) rotateX(180deg) rotateY(0);
+  }
+  50% {
+    transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+  }
+  75% {
+    transform: perspective(100px) rotateX(0) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(100px) rotateX(0) rotateY(0);
+  }
+}

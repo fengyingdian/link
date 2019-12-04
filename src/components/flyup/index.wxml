@@ -1,0 +1,8 @@
+<view
+  class="col-center container {{isUp ? 'up' : ''}}"
+  style="z-index: {{zIndex}}"
+  catch:tap="onTap"
+  hidden="{{!isShow}}">
+  <slot></slot>
+</view>
+

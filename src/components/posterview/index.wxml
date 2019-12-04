@@ -1,0 +1,18 @@
+<!-- components/posterview/index.wxml -->
+<popup isShow="{{isShow}}" catch:hide="onHide">
+  <view class="container" catch:tap="onDoNothing">
+    <view class="cancle-box" catchtap="onHide">
+      <image
+        src="/assets/icons/cancle.png"
+        mode='aspectFill' />
+    </view>
+    <image
+      class="poster"
+      style="height:{{posterHeight*710/576}}rpx;transition:all 1s"
+      src="{{posterUrl}}"
+      mode='aspectFill'
+      catchtap="onPreviewPoster" />
+    <text >{{isSaved ? noteAfter : notePre}}</text>
+    <button catchtap="onSaveImage">保存</button>
+  </view>
+</popup>

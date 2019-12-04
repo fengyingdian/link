@@ -1,0 +1,11 @@
+ {
+  "usingComponents": {
+    "articlecontent": "./articlecontent/index",
+    "posterview": "../../components/posterview/index",
+    "sharebar": "../../components/sharebar/index",
+    "navigatebar": "../../components/navigatebar/index",
+    "loading": "../../components/loading/index",
+    "launchingpage": "../../components/launchingpage/index"
+  },
+  "enablePullDownRefresh": false
+}

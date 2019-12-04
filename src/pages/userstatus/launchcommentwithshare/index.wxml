@@ -1,0 +1,21 @@
+<!--components/launchapp/index.wxml-->
+<view
+  class="col-center container">
+  <button
+    class="row-start comment-container"
+    open-type="{{isLogin ? '' : 'getUserInfo'}}"
+    catch:getuserinfo="onGotAuthorization"
+    catch:tap="{{isLogin ? 'onLaunchComment' : ''}}"
+    hover-class="none">
+    <image class="comment-image" src="/assets/icons/write_thoughts.png"/>
+    <text class="comment-text"> {{commentTips}} </text>
+  </button>
+  <button
+    class="row-center share-container"
+    data-type="article"
+    open-type="share"
+    hover-class="none">
+    <text class="share-text"> {{shareTips}} </text>
+    <image class="share-image" src="/assets/icons/share_thoughts.png"/>
+  </button>
+</view>

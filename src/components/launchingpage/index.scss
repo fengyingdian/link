@@ -1,0 +1,47 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 22;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url('https://sapp.flipchina.cn/static/assets/bg-0_8dad635081ae4f5b9a6451d6cc873e9c.png');
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .comment-card {
+    position: relative;
+    top: 400rpx;
+    opacity: 0;
+    width: 400rpx;
+    height: 150rpx;
+    transform: scaleY(0.5);
+    image {
+      width: 100%;
+      height: 100%;
+      border-radius: 40rpx;
+      box-shadow: 0 0 20rpx #ddd;
+    }
+  }
+  .comment-card-show {
+    top: 200rpx;
+    opacity: 1;
+    transform: scaleY(1);
+    transition: top 2s, opacity 2s, transform 2s;
+    transition-timing-function: linear;
+  }
+  .comment-card-hide {
+    top: 0;
+    opacity: 0;
+    transform: scaleY(0.5);
+    transition: top 2s, opacity 2s, transform 2s;
+    transition-timing-function: linear;
+  }
+}
+
+

@@ -1,0 +1,20 @@
+<view
+  hidden="{{!isShow}}"
+  class="row-space-between container"
+  >
+  <view class="col-center action" bind:tap="onPlay">
+    <image
+    class="icon"
+    style="align-self"
+    src="../../../assets/icons/{{isPlay ? 'pause' : 'play'}}.png"
+    />
+  </view>
+  <text class="number"> {{timer}} </text>
+  <view class="col-center action" bind:tap="onDelete">
+    <image
+      class="icon"
+      style="align-self"
+      src="../../../assets/icons/cancle.png"
+      />
+  </view>
+</view>

@@ -1,0 +1,85 @@
+@import '../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 622rpx;
+  padding: 32rpx 32rpx;
+  background: #444;
+}
+
+.share-container {
+  align-items: center;
+  font-size: 28rpx;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 24rpx 0 0 0;
+  justify-content:flex-end;
+
+}
+
+.share-image {
+  width: 40rpx;
+  min-width: 40rpx;
+  height: 40rpx;
+}
+
+.share-text {
+  margin: 0 24rpx 0 0;
+  color: #fff;
+}
+
+.comment-container {
+  align-items: center;
+  width: 100%;
+  padding: 0 0 24rpx 0;
+  border-bottom: 1px solid #fff;
+}
+
+.comment-image {
+  width: 40rpx;
+  min-width: 40rpx;
+  height: 40rpx;
+}
+
+.comment-text {
+  flex: 1;
+  margin: 0 0 0 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  text-align: left;
+  color: #fff;
+}
+
+.comment {
+  flex: 1;
+  padding: 12rpx 8rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-align: left;
+  color: white;
+  outline: none;
+  border-radius: 6rpx;
+  // &::after {
+  //   content: '';
+  //   animation-name: example;
+  //   animation-duration: 2s;
+  //   animation-iteration-count: infinite;
+  // }
+}
+
+// @keyframes example {
+//   0% {
+//     content: '';
+//   }
+//   33% {
+//     content: '.';
+//   }
+//   67% {
+//     content: '..';
+//   }
+//   100% {
+//     content: '...';
+//   }
+// }

@@ -1,0 +1,133 @@
+
+.user {
+  padding: 14rpx 0 28rpx;
+  width: 100%;
+}
+
+.avatar-box {
+  height: 82rpx;
+  width: 82rpx;
+  min-width: 82rpx;
+  min-height: 82rpx;
+  .avatar {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 80rpx;
+    width: 80rpx;
+    min-width: 80rpx;
+    min-height: 80rpx;
+    border-radius: 50%;
+    background-color: #eee;
+  }
+  .brand {
+    position: relative;
+    left: 52rpx;
+    bottom: 28rpx;
+    width: 28rpx;
+    height: 28rpx;
+    min-width: 28rpx;
+    min-height: 28rpx;
+    border-radius: 50%;
+    border: 2rpx solid white;
+    background: #eee;
+  }
+}
+
+.profile {
+  flex: 1;
+  padding-left: 16rpx;
+}
+
+.title-box {
+  color: #999;
+  height: 42rpx;
+  line-height: 42rpx;
+  flex-wrap: nowrap;
+  text-align: left;
+  .name {
+    color: #444;
+    font-weight: 600;
+    font-size: 28rpx;
+  }
+  .desc {
+    margin-left: 16rpx;
+    font-size: 24rpx;
+  }
+}
+
+.comment {
+  text-align: left;
+  color: #444;
+  font-size: 28rpx;
+  padding-top: 6rpx;
+  line-height: 40rpx;
+}
+
+.avatar-rect {
+  height: 64rpx;
+  width: 64rpx;
+  background: #eee;
+}
+
+.profile-rect {
+  flex: 1;
+  margin: 0 0 0 16rpx;
+  align-items: center;
+  .info {
+    color: #999;
+    font-size: 24rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+  }
+  .comment {
+    color: #444;
+    font-size: 24rpx;
+    line-height: 34rpx;
+  }
+}
+
+.title-box-rect {
+  align-items: center;
+  height: 44rpx;
+  margin: 0 32rpx 0 0;
+  .name {
+    color: #444;
+    font-size: 28rpx;
+    font-weight: 900;
+    height: 44rpx;
+    line-height: 44rpx;
+  }
+  .brand {
+    background: #eee;
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0 0 0 12rpx;
+  }
+  .description {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 44rpx;
+  }
+}
+
+.thumb-container {
+  align-items: center;
+  height: 80rpx;
+  image {
+    height: 36rpx;
+    width: 36rpx;
+    min-width: 36rpx;
+    margin-right: 32rpx;
+    margin-left: 14rpx;
+  }
+  .text-box {
+    align-items: center;
+    text {
+      font-size: 36rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      color: #999;
+    }
+  }
+}

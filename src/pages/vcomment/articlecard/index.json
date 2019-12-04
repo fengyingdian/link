@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "circle": "../../components/circle/index"
+  }
+}

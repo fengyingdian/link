@@ -1,0 +1,25 @@
+@import '../../common/scss/common.scss';
+
+.title-box {
+  width: 100vw;
+  background: #fff;
+  padding: 48rpx 0 0;
+  align-items: center;
+};
+
+.title {
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 0 0 18rpx;
+  font-size: 36rpx;
+  font-weight: 900;
+};
+
+.title-brand {
+  height: 36rpx;
+  width: 8rpx;
+  background: #f52828;
+  margin: 0 0 0 32rpx;
+};
+

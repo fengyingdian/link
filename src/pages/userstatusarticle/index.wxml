@@ -1,0 +1,66 @@
+<!-- pages/vcomment/index.wxml -->
+<view class="canvas-container">
+  <canvas
+    canvas-id="cover"
+    style="width:500px;height:400px"/>
+  <canvas
+    canvas-id="getPosterHeight"
+    style="width:375px;height:578px"/>
+  <canvas
+    canvas-id="poster"
+    style="width:375px;height:{{posterHeight}}px"/>
+</view>
+
+<view hidden="{{showMgr.page}}">
+  <loading color='grey'/>
+</view>
+
+<newusernotification />
+
+<scroll-view
+  scroll-y="{{true}}"
+  hidden='{{!showMgr.page}}'
+  class="col-start page-container"
+  bind:scrolltolower="onScrollToLower"
+  bind:touchstart="onTouchStart"
+  bind:touchend="onTouchEnd"
+  >
+
+  <navigatebar
+    title='{{navigateTitle}}'
+    status='{{navigateStatus}}'
+    zIndex='{{navigateIndexZ}}'
+    />
+
+  <view style="width:100vw;height:{{statusBar + 45}}px" />
+
+  <articlecontent url="{{article.url}}" style="height: 100%" />
+
+</scroll-view>
+
+<!-- <view
+  class="launch-comment {{launchCommentStatus === 1 ? 'launch-comment-hide' : ''}}"
+  catch:tap="">
+  <launchcommentwithshare
+    statusId="{{statusId}}"
+    url="{{url}}"
+    title="{{article.title}}"
+    authorId="{{authorId}}"
+    imageUrl="{{imageUrl}}"
+    isLogin="{{isLogin}}"
+    catch:launchcomment="onLaunchComment"
+    catch:sharecomment="onShareComment"/>
+</view> -->
+
+<sharebar
+  isShow="{{isShowShareComment}}"
+  catch:showPoster="onShowPosterView"
+  catch:hide="onCloseShareComment"
+  />
+
+<posterview
+  isShow="{{isShowPosterView}}"
+  posterUrl="{{posterUrl}}"
+  posterHeight="{{posterHeight}}"
+  catch:hide="onClosePosterView"
+  />

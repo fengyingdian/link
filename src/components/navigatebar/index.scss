@@ -1,0 +1,83 @@
+/* components/toptab/index.wxss */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  .statusBar{
+    width: 100vw;
+  }
+  .navigateBar {
+    width: 100vw;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .options {
+      position: fixed;
+      width: 100vw;
+      height: 44px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      .item-box {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .image {
+          width: 21px;
+          height: 21px;
+        }
+      }
+    }
+    .title-box {
+      position: fixed;
+      left: 200rpx;
+      opacity: 0;
+      width: 350rpx;
+      height: 44px;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 44px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .avatar {
+        margin: 8px;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        border-radius: 50%;
+      }
+      .title {
+        height: 44px;
+        line-height: 44px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+    }
+    .showInmediately {
+      opacity: 1;
+    }
+    .hideInmediately {
+      opacity: 0;
+    }
+    .showTransition {
+      opacity: 1;
+      transition: opacity 2s;
+    }
+    .hideTransition {
+      opacity: 0;
+      transition: opacity 2s;
+    }
+  }
+}

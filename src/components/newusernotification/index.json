@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "topnotification": "../topnotification/index"
+  },
+  "component": true
+}

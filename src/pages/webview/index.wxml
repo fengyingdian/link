@@ -1,0 +1,17 @@
+<!-- <web-view src='http://localhost:3000/#/articles/{{articleId}}/authors/{{authorId}}/imageUrl/{{imageUrl}}' /> -->
+<!-- <web-view src='https://sapp-staging.flipchina.cn/flimimag-china/index.html#/articles/{{articleId}}/avatar/{{avatar}}' /> -->
+<!-- <web-view src='https://sapp.flipchina.cn/flimimag-china/index.html#/articles/{{articleId}}/authors/{{authorId}}/imageUrl/{{imageUrl}}' /> -->
+
+<scroll-view
+  scroll-y="{{true}}"
+  scroll-top="{{scrollInit}}"
+  style="width:100vw;height:200px"
+  bindscroll="onScroll"
+  >
+  <view
+    style="width:100%;height:400px;line-height:400px;text-align:center;font-size:100px;background:#eee;color:#fff"
+    wx:for="{{numbers}}"
+    >
+    {{item}}
+  </view>
+</scroll-view>

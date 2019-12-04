@@ -1,0 +1,12 @@
+
+@import '../../common/scss/user.scss';
+@import '../../common/scss/common.scss';
+@import '../../common/scss/comment.scss';
+
+.comment-container {
+  width: 654rpx;
+  padding: 32rpx 0 0 32rpx;
+  margin: 16rpx 0;
+  box-shadow: 0 0 16rpx 8rpx rgba(240,240,240, 0.6);
+  background: #fff;
+}

@@ -1,0 +1,27 @@
+/* pages/vcomment/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+}
+
+.content-container {
+  align-items: center;
+  width: 686rpx;
+}
+
+.button-container {
+  align-items: center;
+  width: 100%;
+  padding: 32rpx 0;
+  background: #333;
+  position: fixed;
+  bottom: 0;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 32rpx 32rpx;
+}

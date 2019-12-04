@@ -1,0 +1,18 @@
+<button
+  class="col-start container"
+  >
+  <image
+    class="background"
+    mode="aspectFill"
+    src="{{filePath}}"
+    />
+  <view
+    class="delete col-center"
+    bind:tap="onDelete"
+    >
+    <image
+      style="width:100%;height:100%;"
+      src="/assets/icons/delete.png"
+      />
+  </view>
+</button>

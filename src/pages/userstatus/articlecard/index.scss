@@ -1,0 +1,93 @@
+/*
+ * File: index.jsx
+ * Project: flipboard-web
+ * File Created: Thursday, 12th September 2019 12:19:36 pm
+ * Author: break (fengyingdian@126.com)
+ */
+
+@import '../../../common/scss/common.scss';
+@import '../../../common/scss/article.scss';
+
+.article-card {
+  align-items: center;
+  margin: 32rpx;
+  box-shadow: 0 0 24rpx 20rpx rgba(240, 240, 240, 0.7);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 686rpx;
+};
+
+.article-card-logo-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+};
+
+.article-box {
+  width: 100%;
+  position: relative;
+};
+
+.article-title {
+  font-size: 40rpx;
+  font-weight: 900;
+  font-family: 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
+  line-height: 56rpx;
+  text-align: left;
+  margin: 400rpx 64rpx 0;
+  color: #fff;
+  position: relative;
+  left: 0;
+  top: 0;
+};
+
+.article-subtitle {
+  margin: 16rpx 64rpx 160rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  color: #fff;
+};
+
+.article-read-more {
+  align-items: center;
+  text-align: right;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  margin: 48rpx 0;
+  padding: 16rpx 36rpx 16rpx 44rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  background: #f52828;
+};
+
+.article-mask-box {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3),rgba(0,0,0,0.4),rgba(0,0,0,0.5),rgba(0,0,0,0.6),rgba(0,0,0,0.6),rgba(0,0,0,0.3));
+  width: 100%;
+  height: 100%;
+};
+
+.article-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+};
+
+.article-read-more-icon {
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  margin: 0 0 0 9px;
+};

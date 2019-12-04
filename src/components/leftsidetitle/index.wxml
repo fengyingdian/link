@@ -1,0 +1,4 @@
+<view class="row-start title-box">
+  <view class="title-brand" />
+  <text class="title"> {{title + (count > 2 ? '（' + count + '）' : '')}} </text>
+</view>

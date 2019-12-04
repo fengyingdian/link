@@ -1,0 +1,23 @@
+<import src="../../../wxParser/index.wxml"/>
+
+<view
+  wx:if="{{status === 0}}"
+  class="col-start article-container">
+  <text class="title"> {{title}} </text>
+  <view class="subtitle">
+    <text wx:if="{{author && time}}"> {{ author }}·{{ time }} </text>
+  </view>
+  <view class="col-center wx-parser">
+    <template is="wx-parser" data="{{wxParserData:richText.nodes}}" />
+  </view>
+</view>
+<view
+  wx:elif="{{status === 1}}"
+  class="col-center loading-container">
+  <text class="error-text"> oops~数据获取失败啦~ </text>
+</view>
+<view
+  wx:else
+  class="col-center loading-container">
+  <view class="svg-grey" style="width:100rpx;height:100rpx" />
+</view>

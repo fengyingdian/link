@@ -1,0 +1,27 @@
+<view
+  hidden="{{!isShow}}"
+  class="row-space-between container"
+  >
+  <view class="col-center action" bind:tap="onPause">
+    <image
+    class="icon"
+    style="align-self"
+    src="../../../assets/icons/{{isPause ? 'resume' : 'pause'}}.png"
+    />
+  </view>
+  <text class="number"> {{timer}} </text>
+  <view class="col-center action" bind:tap="onStop" data-iscancle="{{true}}">
+    <image
+      class="icon"
+      style="align-self"
+      src="../../../assets/icons/cancle.png"
+      />
+  </view>
+  <view class="col-center action" catch:tap="onStop">
+    <image
+      class="icon"
+      style="align-self"
+      src="../../../assets/icons/finish.png"
+      />
+  </view>
+</view>

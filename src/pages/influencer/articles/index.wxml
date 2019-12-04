@@ -1,0 +1,9 @@
+<block wx:for="{{articles}}" wx:for-item="data" wx:key="">
+  <block wx:for="{{data}}" wx:for-item="item" wx:key="id">
+    <articlecard article="{{item}}" index="{{index}}" bindarticle="tapArticle" />
+  </block>
+</block>
+<view wx:if="{{fetchedAll}}" class="tips">{{bottomTips}}</view>
+<view hidden="{{fetchedAll}}" class="bottom">
+  <loadingsmall />
+</view>

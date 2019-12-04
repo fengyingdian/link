@@ -1,0 +1,24 @@
+<!-- components/AvatarContainer/index.wxml -->
+<import src="../../common/wxml/comment/index.wxml" />
+
+<view
+  class="col-start"
+  style="align-items:center;width:100vw;"
+  hidden="{{comments.length < 1}}">
+  <leftsidetitle title="{{title}}" count="{{comments.length}}" />
+  <view style="height:16rpx;width:100%" />
+  <block
+    wx:for="{{comments}}"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="id">
+    <view
+      wx:if="{{(index < maxlength)}}"
+      class="comment-container"
+      style="background:{{item.id === selectedCommentId ? selectedCommentBK : ''}}"
+      id="comment-{{item.id}}"
+      >
+      <template is="comment-rect" data="{{item, index, isLogin}}" />
+    </view>
+  </block>
+</view>

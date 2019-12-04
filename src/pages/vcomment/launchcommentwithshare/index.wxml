@@ -1,0 +1,24 @@
+<!--components/launchapp/index.wxml-->
+<view
+    class="container row-space-between"
+    style="{{isIphoneX ? 'margin: 12rpx 32rpx 34px' : ''}}">
+  <button
+    class="launch-comment row-start"
+    open-type="{{isLogin ? '' : 'getUserInfo'}}"
+    catch:getuserinfo="onGotAuthorization"
+    catch:tap="{{isLogin ? 'onLaunchComment' : ''}}"
+    hover-class="none">
+    <view class="image-box row">
+      <open-data
+        class="image"
+        type='userAvatarUrl'></open-data>
+    </view>
+    <text class="comment"> {{tips}} </text>
+  </button>
+  <view
+    class="share-container row-center"
+    catch:tap="onShare">
+    <image class="share" src="/assets/icons/share.png"/>
+    <text> 分享 </text>
+  </view>
+</view>

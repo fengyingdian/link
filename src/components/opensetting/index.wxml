@@ -1,0 +1,10 @@
+<!--components/launchcontact/index.wxml-->
+<view class="container">
+  <image src="https://ol0hvs2t3.qnssl.com/20180808140930_bR2Nus_e7865f76-02a1-46f9-9500-159a8cf0c222-1520381250158.jpeg" />
+  <text> 根据微信分享规则 </text>
+  <text> 目前分享朋友圈只能采用图片形式 </text>
+  <text> 您尚未授权红板报打开相册权限 </text>
+  <button bindtap="tapOpenSetting">
+    <span> 权限设置 </span>
+  </button>
+</view>

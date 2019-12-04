@@ -1,0 +1,18 @@
+<!-- components/posterview/index.wxml -->
+<view class="container" catch:tap="onDoNothing" style="top:-{{keyboardHeight}}px">
+  <textarea
+    class="input"
+    cursor-spacing="500"
+    fixed="{{fixed}}"
+    auto-focus="{{focus}}"
+    focus="{{focus}}"
+    adjust-position="{{adjustPosition}}"
+    placeholder="{{placeholder}}"
+    show-confirm-bar="{{showConfirmBar}}"
+    value="{{content}}"
+    placeholder-class="placeholder"
+    bindkeyboardheightchange="keyBoardHeightChange"
+    bindfocus="focus"
+    bindinput="userInput"
+    bindblur="onBlur"/>
+</view>

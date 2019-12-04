@@ -1,0 +1,41 @@
+{
+	"description": "flimi小程序项目配置文件",
+	"compileType": "miniprogram",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"uglifyFileName": true
+	},
+	"libVersion": "2.5.0",
+	"appid": "wxdd31a5a069098b0d",
+	"projectname": "flimi",
+	"packOptions": {
+		"ignore": []
+	},
+	"debugOptions": {},
+  "condition": {},
+  "miniprogram": {
+    "current": 0,
+    "list": [
+      {
+        "id": 0,
+        "name": "demo_page",
+        "pathName": "pages/demo_page/index"
+      },
+      {
+        "id": 1,
+        "name": "profile",
+        "pathName": "pages/profile/index"
+      },
+      {
+        "id": 2,
+        "name": "parallax",
+        "pathName": "pages/parallax/index"
+      }
+    ]
+  }
+}

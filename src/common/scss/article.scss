@@ -1,0 +1,146 @@
+
+.article-container {
+  background: #fff;
+  margin: 32rpx;
+  padding: 40rpx 32rpx 32rpx;
+  width: 622rpx;
+  box-shadow: 0 0 16rpx 8rpx rgba(240, 240, 240, 0.6);
+}
+
+.cover-box-1 {
+  align-self: center;
+  width: 622rpx;
+  height: 320rpx;
+}
+
+.cover-box-2 {
+  align-self: center;
+  width: 622rpx;
+  height: 320rpx;
+  margin-bottom: 32rpx;
+}
+
+.cover {
+  position: relative;
+  z-index: 1;
+  width: 622rpx;
+  min-height: 320rpx;
+}
+
+.cover-show {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.mask {
+  position: relative;
+  bottom: 320rpx;
+  left: 0;
+  width: 100%;
+  min-height: 320rpx;
+  background: linear-gradient(transparent, rgba(0,0,0,0.4));
+  z-index: 2;
+  color: white;
+  opacity: 1;
+}
+
+.mask-hide {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.title {
+  color: #444;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 50rpx;
+  text-align: left;
+}
+
+.title-1 {
+  padding: 24rpx 0 0;
+}
+
+.title-2 {
+  padding: 0 32rpx 0;
+  color: #fff;
+}
+
+.publisher {
+  color: #999;
+  font-size: 26rpx;
+  line-height:30rpx;
+  text-align: left;
+}
+
+.publisher-1 {
+  padding: 18rpx 0 0;
+}
+
+.publisher-2 {
+  padding: 8rpx 32rpx 26rpx;
+  color: #fff;
+}
+
+.prime-title {
+  padding-top: 28rpx;
+  width: 100%;
+  border-top: 2rpx solid #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  .prime-badge {
+    width: 68rpx;
+    height: 38rpx;
+    font-size: 22rpx;
+    border-radius: 10rpx;
+    line-height: 36rpx;
+    color: rgb(225, 40, 40);
+    border: 2rpx solid rgb(225, 40, 40);
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .prime-name {
+    margin-left: 16rpx;
+    font-size: 28rpx;
+    color: #444;
+  }
+}
+
+.prime-comment {
+  text-align: left;
+  color: #444;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-top: 18rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.article-logo-container {
+  width: 160rpx;
+  height: 160rpx;
+  min-width: 160rpx;
+  min-height: 160rpx;
+};
+
+.article-logo-row {
+  width: 120rpx;
+  height: 40rpx;
+  background: #f52828;
+  position: absolute;
+  left: 0;
+  top: 0;
+};
+
+.article-logo-col {
+  width: 40rpx;
+  height: 120rpx;
+  background: #f52828;
+  position: absolute;
+  left: 0;
+  top: 0;
+};

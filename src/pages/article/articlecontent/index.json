@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigatebar": "../../components/navigatebar/index",
+    "loading": "../../components/loading/index"
+  },
+  "enablePullDownRefresh": false
+}

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "topbar": "../../components/topbar/index",
+    "loadingsmall": "../../components/loadingsmall/index",
+    "newusernotification": "../../components/newusernotification/index",
+    "articlelist": "./articlelist/index",
+    "statuslist": "./statuslist/index",
+    "loadingpage": "./loadingpage/index"
+  },
+  "onReachBottomDistance": 1000
+}

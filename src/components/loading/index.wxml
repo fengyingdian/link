@@ -1,0 +1,4 @@
+<!--components/tabtop/index.wxml-->
+<view class="container">
+  <view class="svg-{{color}} logo" />
+</view>

@@ -1,0 +1,93 @@
+/* pages/vcomment/index.wxss */
+page {
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas-container {
+  position: absolute;
+  top: -2000px;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  padding: 44rpx 32rpx 0rpx;
+  width: 688rpx;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .triangle {
+    height: 32rpx;
+    width: 64rpx;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+  }
+}
+
+.more-recommend {
+  height: 100px;
+  line-height: 100px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100vw;
+  background: #f23232;
+  border-bottom: 1px solid #eee;
+}
+
+.launch-comment {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  transition: all .3s;
+}
+
+.launch-comment-hide {
+  bottom: -100px;
+}
+
+.commentlist-border-top {
+  height: 16rpx;
+  width: 100vw;
+  background: #eee;
+}
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.3);
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: auto;
+}

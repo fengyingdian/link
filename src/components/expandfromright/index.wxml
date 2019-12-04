@@ -1,0 +1,16 @@
+<view
+  class="col-start container"
+  style="transform: translate3d({{isShow ? '0' : '100%'}},0,0); z-index: {{zIndex}}" >
+  <view class="navigate-bar">
+    <view style="width:100%;height:{{statusBar}}px;" />
+    <view class="row-start cancle-box" bind:tap="onCancle">
+      <image class="cancle" src="/assets/icons/cancle.png" />
+    </view>
+  </view>
+  <scroll-view
+    scroll-y="{{true}}"
+    class="col-start slot-container"
+    style="height:{{windowHeight - statusBar - 45}}px">
+    <slot></slot>
+  </scroll-view>
+</view>

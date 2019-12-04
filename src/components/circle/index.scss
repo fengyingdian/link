@@ -1,0 +1,35 @@
+/* components/articlecard/index.wxss */
+
+.circle-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  .circle{
+    border-radius: 28rpx;
+    background: rgb(245,245,250);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20rpx 0;
+    margin-right: 16rpx;
+    margin-bottom: 16rpx;
+    height: 52rpx;
+    .logo {
+      width: 28rpx;
+      min-width: 28rpx;
+      height: 28rpx;
+      border-radius: 50%;
+      background: rgb(65,133,221);
+      color: white;
+    }
+    .name {
+      padding-left: 4rpx;
+      color: rgb(74, 144, 226);
+      font-size: 26rpx;
+    }
+  }
+}

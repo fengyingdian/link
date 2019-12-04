@@ -1,0 +1,51 @@
+<import src="../user/index.wxml" />
+
+<template name='comment-options'>
+  <view class="col-start" style="width:100%">
+    <button
+      open-type="{{isLogin ? '' : 'getUserInfo'}}"
+      catch:tap="{{isLogin ? 'onRespond' : ''}}"
+      catch:getuserinfo="onGetUserInfo"
+      data-item="{{item}}"
+      data-type="respond"
+      hover-class="none"
+      class="comment-content"
+      style="margin:0 32rpx 0 0"
+      >{{item.replyTo}} {{item.text}}</button>
+    <view class="row-space-between" style="width:100%">
+      <button
+        open-type="{{isLogin ? '' : 'getUserInfo'}}"
+        catch:tap="{{isLogin ? 'onRespond' : ''}}"
+        catch:getuserinfo="onGetUserInfo"
+        data-item="{{item}}"
+        data-type="respond"
+        hover-class="none"
+        class="row-start option-container"
+        >
+        <text>{{item.time}}</text>
+        <text style="margin-left: 32rpx;">回复</text>
+      </button>
+      <view
+        class="row-end option-container"
+        data-item="{{item}}"
+        catch:tap="onShare">
+        <image class="option-image" src="/assets/icons/share.png"/>
+        <text class="option-text"> 分享 </text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="comment-rect">
+  <template is="user-rect" data="{{item, index, isLogin}}"/>
+  <view style="margin: 24rpx 0 0 0">
+    <template is="comment-options" data="{{item, index, isLogin}}"/>
+  </view>
+</template>
+
+<template name="hashtag-comment-rect">
+  <template is="user-rect-no-clap-no-comment" data="{{avatar, nickname, introduction, description, verifiedType}}"/>
+  <view style="padding:32rpx;background:#eee">
+    <text class="comment-content" style="width:100%"> {{content}} </text>
+  </view>
+</template>

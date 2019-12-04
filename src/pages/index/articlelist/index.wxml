@@ -1,0 +1,38 @@
+<block wx:if="{{articles && articles.length > 0 && articles[0].length > 0}}">
+  <block wx:for="{{articles}}" wx:for-item="data" wx:key="">
+    <block wx:for="{{data}}" wx:for-item="item" wx:key="id">
+      <block wx:if="{{item.prime}}">
+        <articlecardwithprime
+          index="{{index}}"
+          avatar="{{item.influencer.avatar}}"
+          nickname="{{item.influencer.nickname}}"
+          description="{{item.influencer.description}}"
+          comment="{{item.influencer.comment}}"
+          time="{{item.time}}"
+          commentCount="{{item.commentCount}}"
+          publisherDisplayName="{{item.tipublisherDisplayNameme}}"
+          title="{{item.title}}"
+          cover="{{item.coverSrc}}"
+          url="{{item.fl_url}}"
+          bindarticle="tapArticle" />
+      </block>
+      <block wx:else>
+        <articlecard
+          index="{{index}}"
+          avatar="{{item.influencer.avatar}}"
+          nickname="{{item.influencer.nickname}}"
+          description="{{item.influencer.description}}"
+          comment="{{item.influencer.comment}}"
+          time="{{item.time}}"
+          commentCount="{{item.commentCount}}"
+          publisherDisplayName="{{item.tipublisherDisplayNameme}}"
+          title="{{item.title}}"
+          cover="{{item.coverSrc}}"
+          url="{{item.fl_url}}"
+          bindarticle="tapArticle" />
+      </block>
+    </block>
+  </block>
+  <feedbottom isShowTips="{{isShowBottomTips}}"/>
+</block>
+

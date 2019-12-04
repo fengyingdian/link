@@ -1,0 +1,71 @@
+<!-- components/articlecard/index.wxml -->
+<view
+  class="page-container">
+  <articlecard
+    article="{{article}}"
+    url="{{url}}"
+    coverUrl="{{cover}}"
+    isLogin="{{isLogin}}"
+    authorId="{{authorId}}"
+    imageUrl="{{imageUrl}}"
+    bindarticle="onArticle"/>
+
+  <block wx:if="{{topComments.length > 0}}">
+    <view class="recommendor-container row">
+      <text class="recommendor"> 推荐人 </text>
+      <!-- <text class="tips"> 想成为内容推荐人？点我~</text> -->
+    </view>
+    <commentlist
+      article="{{article}}"
+      isHideLastSplit="true"
+      maxlength="{{maxlength}}"
+      comments="{{topComments}}"
+      isTop="true"
+      isLogin="{{isLogin}}"
+      catch:clap="onClapComment"
+      catch:respond="onRespondComment"
+      catch:share="onShareComment"
+      />
+  </block>
+
+  <view class="commentlist-border-top" />
+
+  <commentlist
+    title="{{commentListTitles[0]}}"
+    selectedCommentId="{{selectedCommentId}}"
+    isHideLastSplit="{{norComments.length<1}}"
+    maxlength="{{maxlength - topComments.length}}"
+    article="{{article}}"
+    comments="{{vipComments}}"
+    isLogin="{{isLogin}}"
+    catch:clap="onClapComment"
+    catch:respond="onRespondComment"
+    catch:share="onShareComment"
+    />
+
+  <commentlist
+    title="{{commentListTitles[1]}}"
+    selectedCommentId="{{selectedCommentId}}"
+    isHideLastSplit="{{true}}"
+    maxlength="{{maxlength - topComments.length - vipComments.length}}"
+    article="{{article}}"
+    comments="{{norComments}}"
+    isLogin="{{isLogin}}"
+    catch:clap="onClapComment"
+    catch:respond="onRespondComment"
+    catch:share="onShareComment"
+    />
+  <!-- <block wx:if="{{maxlength - topComments.length - vipComments.length - norComments.length < 0}}">
+    <loadmorecomment catch:loadmorecomment="onLoadMoreComment" />
+  </block> -->
+</view>
+
+<view
+  class="popup"
+  catch:tap="onCloseRespondComment"
+  hidden="{{!isShowRespondComment}}">
+  <respondcomment
+    respondData="{{respondComment}}"
+    focus="{{respondFocus}}"
+    catch:submit="onRespondCommentSubmit" />
+</view>

@@ -1,0 +1,46 @@
+/* components/launchapp/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  height: 80rpx;
+  width: 740rpx;
+  box-shadow: 0 0 40rpx 40rpx #eee;
+}
+
+.tip-box {
+  flex: 1;
+  align-items: center;
+  background: #e23232;
+  height: 80rpx;
+  padding: 0 32rpx;
+  margin-right: 1px;
+}
+
+.tip-text {
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.tip-image {
+  height: 32rpx;
+  width: 60rpx;
+  min-width: 60rpx;
+  margin: 10rpx;
+}
+
+.cancle-box {
+  align-items: center;
+  height: 80rpx;
+  padding: 0 32rpx;
+  background: #e23232;
+  border-left: 1px solid #fff;
+}
+
+.cancle-image {
+  width: 26rpx;
+  min-width: 26rpx;
+  height: 26rpx;
+}
+
+

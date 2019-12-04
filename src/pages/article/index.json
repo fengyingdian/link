@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "articlecontent": "./articlecontent/index",
+    "articlecomment": "./articlecomment/index",
+    "launchcommentwithoptions": "./launchcommentwithoptions/index",
+    "posterview": "../../components/posterview/index",
+    "sharebar": "../../components/sharebar/index",
+    "navigatebar": "../../components/navigatebar/index",
+    "popup": "../../components/popup/index",
+    "loading": "../../components/loading/index",
+    "launchingpage": "../../components/launchingpage/index",
+    "respondcomment": "../../components/respondcomment/index"
+  },
+  "enablePullDownRefresh": false
+}

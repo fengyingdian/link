@@ -1,0 +1,47 @@
+/* components/toptab/index.wxss */
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 100vw;
+  border-top: 16rpx solid #eee;
+  border-bottom: 1px solid rgba($color: grey, $alpha: 0.1);
+  .select {
+    padding: 0px 175rpx 0;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 32rpx;
+    font-weight: 500;
+    .itemShow {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 200rpx;
+      color: #444;
+      .bar {
+        width: 48rpx;
+        height: 8rpx;
+        margin-top: 12rpx;
+        background-color: #E12828;
+      }
+    }
+    .itemHide {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 200rpx;
+      color: #999;
+      .hide {
+        height: 8rpx;
+        margin-top: 12rpx;
+      }
+    }
+  }
+}

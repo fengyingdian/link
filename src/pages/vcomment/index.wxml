@@ -1,0 +1,76 @@
+<!-- pages/vcomment/index.wxml -->
+<view class="canvas-container">
+  <canvas
+    canvas-id="cover"
+    style="width:500px;height:400px"/>
+  <canvas
+    canvas-id="getPosterHeight"
+    style="width:375px;height:578px"/>
+  <canvas
+    canvas-id="poster"
+    style="width:375px;height:{{posterHeight}}px"/>
+</view>
+
+<view hidden="{{showMgr.page}}">
+  <loading color='red'/>
+</view>
+
+<navigatebar
+  title='{{navigateTitle}}'
+  status='{{navigateStatus}}'/>
+
+<newusernotification />
+
+<view
+  hidden='{{!showMgr.page}}'
+  class="page-container">
+  <view style="height:{{statusBar + 45}}px" />
+
+  <toparticle
+    article="{{article}}"
+    influencer="{{influencer}}"
+    url="{{url}}"
+    cover="{{localBkImge.path}}"
+    topComments="{{topComments}}"
+    vipComments="{{vipComments}}"
+    norComments="{{norComments}}"
+    selectedCommentId="{{selectedCommentId}}"
+    isLogin="{{isLogin}}"
+    authorId="{{authorId}}"
+    imageUrl="{{imageUrl}}"
+    catch:loadmorecomment="onLoadMoreComment"
+    />
+
+  <!-- <view class="more-recommend"> {{circle.name}} </view> -->
+
+  <!-- <recommendarticles
+    article="{{article}}"
+    circleId="{{circle.id}}"
+    refresh="{{refreshRecommend}}"/>
+
+  <view
+    class="launch-comment {{launchCommentStatus === 1 ? 'launch-comment-hide' : ''}}"
+    catch:tap="">
+    <launchcommentwithshare
+      articleId="{{article.id}}"
+      title="{{article.title}}"
+      authorId="{{authorId}}"
+      imageUrl="{{imageUrl}}"
+      isLogin="{{isLogin}}"
+      catch:launchcomment="onLaunchComment"
+      catch:sharecomment="onShareComment"/>
+  </view> -->
+</view>
+
+<sharebar
+  isShow="{{isShowShareComment}}"
+  catch:showPoster="onShowPosterView"
+  catch:hide="onCloseShareComment"
+  />
+
+<posterview
+  isShow="{{isShowPosterView}}"
+  posterUrl="{{posterUrl}}"
+  posterHeight="{{posterHeight}}"
+  catch:hide="onClosePosterView"
+  />

@@ -1,0 +1,57 @@
+/* components/toptab/index.wxss */
+.tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid rgba($color: grey, $alpha: 0.1);
+  .statusBar{
+    width: 100%;
+  }
+  .navigateBar{
+    width: 100vw;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: white;
+    .options {
+      position: fixed;
+      height: 45px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .avatar {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        image {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    .title {
+      position: fixed;
+      left: 200rpx;
+      width: 350rpx;
+      font-size: 17px;
+      font-weight: 600;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+}

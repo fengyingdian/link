@@ -1,0 +1,13 @@
+<import src="../../../wxParser/index.wxml"/>
+
+<view
+  wx:if="{{show}}"
+  class="col-center container">
+  <text class="title"> {{title}} </text>
+  <view class="subtitle">
+    <text wx:if="{{author && time}}"> {{ author }}·{{ time }} </text>
+  </view>
+  <view class="col-center wx-parser">
+    <template is="wx-parser" data="{{wxParserData:richText.nodes}}"/>
+  </view>
+</view>

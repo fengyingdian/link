@@ -1,0 +1,35 @@
+/* components/launchcontact/index.wxss */
+.container {
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  .image {
+    height: 200rpx;
+    width: 200rpx;
+    margin: 30rpx;
+  }
+  .content {
+    font-size: 28rpx;
+    color: grey;
+  }
+  .contact-container{
+    background-color: rgb(221, 57, 54);
+    height: 72rpx;
+    width: 254rpx;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30rpx;
+    .name {
+      font-size: 32rpx;
+      color: white;
+    }
+  }
+}

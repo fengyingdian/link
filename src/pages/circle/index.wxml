@@ -1,0 +1,13 @@
+<!-- pages/influencer/index.wxml -->
+<navigatebar title="{{navigateBarTitle}}"/>
+<view hidden="{{showMgr.page}}">
+  <loading />
+</view>
+<view class="page-container" hidden='{{!showMgr.page}}'>
+  <view style="height:{{statusBar}}px;width:100vw" />
+  <view style="height:45px;width:100vw" />
+  <view class='container'>
+    <circleheader name="{{name}}" description='{{description}}' influencers='{{influencers}}'/>
+    <articles name="{{name}}" circleId="{{circleId}}" refresh="{{refresh}}" />
+  </view>
+</view>

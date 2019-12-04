@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "commentlist": "../../../components/commentlist/index",
+    "loadmorecomment": "../../../components/loadmorecomment/index"
+  }
+}

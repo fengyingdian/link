@@ -1,0 +1,23 @@
+<block wx:if="{{userStatuses && userStatuses.length > 0 && userStatuses[0].length > 0 }}">
+  <block wx:for="{{userStatuses}}" wx:for-item="data" wx:key="">
+    <block wx:for="{{data}}" wx:for-item="item" wx:key="id">
+      <statuscard
+        index="{{index}}"
+        avatar="{{item.comment.imageUrl}}"
+        nickname="{{item.comment.displayName}}"
+        verifiedType="{{item.comment.verifiedType}}"
+        description="{{item.comment.introduction || item.comment.description}}"
+        comment="{{item.comment.content}}"
+        time="{{item.comment.postedTime}}"
+        commentCount="{{item.article.commentCount}}"
+        publisherDisplayName="{{item.article.publisherDisplayName}}"
+        title="{{item.article.title}}"
+        cover="{{item.article.image}}"
+        statusId="{{item.id}}"
+        url="{{item.article.url}}"
+        bindarticle="tapArticle" />
+    </block>
+  </block>
+  <feedbottom hasMoreItem="{{hasMoreUserStatus}}"/>
+</block>
+

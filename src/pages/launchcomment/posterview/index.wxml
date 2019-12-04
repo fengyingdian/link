@@ -1,0 +1,20 @@
+<!-- components/posterview/index.wxml -->
+<view class="container" catch:tap="onDoNothing">
+  <view style="height:{{statusBar}}px" />
+  <view style="height:44px" />
+  <text class="title"> 发表成功 </text>
+  <text class="tips" wx:if="{{!isSaved}}">{{notePre}}</text>
+  <text class="tips" wx:else>{{noteAfter}}</text>
+  <image
+    class="poster"
+    style="height:{{posterHeight*710/576}}rpx;transition:all 1s"
+    src="{{posterUrl}}"
+    mode='aspectFill'
+    catchtap="tapPreviewPoster" />
+  <view class="options">
+    <button class="item" catchtap="tapSaveImage">保存</button>
+    <button class="item" catchtap="tapClosePage">关闭</button>
+  </view>
+  <view style="height:{{statusBar}}px" />
+  <view style="height:44px" />
+</view>
