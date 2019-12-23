@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigatebar": "../../components/navigatebar/index",
+    "preview": "./preview/index"
+  },
+  "enablePullDownRefresh": false
+}

@@ -1,9 +1,0 @@
-<!--components/launchcontact/index.wxml-->
-<view class="container">
-  <image class="image" src="https://ol0hvs2t3.qnssl.com/20180808140930_bR2Nus_e7865f76-02a1-46f9-9500-159a8cf0c222-1520381250158.jpeg" />
-  <text class="content"> 请在客服会话中回复"1"下载</text>
-  <text class="content"> 「红板报APP」</text>
-  <button class="contact-container" open-type="contact">
-    <text class="name"> 前往客服会话 </text>
-  </button>
-</view>

@@ -25,22 +25,13 @@ export const uploadimage = Behavior({
         count: maxCount - images.length,
         type: 'image',
       })
-        .then(res => {
-          wx.showToast({
-            title: '上传成功',
-          });
-          return res.tempFilePaths;
-        })
-        .catch(() => {
-          wx.showToast({
-            title: '上传失败',
-            icon: 'none',
-          });
-          return '';
+        .then(res => res.tempFilePaths)
+        .catch(() => []);
+      if (filePaths && filePaths.length > 0) {
+        this.setData({
+          images: images.concat(filePaths),
         });
-      this.setData({
-        images: images.concat(filePaths),
-      });
+      }
     },
 
     delete(filePath) {

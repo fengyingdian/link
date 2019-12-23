@@ -1,0 +1,57 @@
+<view class="col-start container">
+  <view class="col-start content-container" bind:tap="onReply">
+    <view class="row-start user-container">
+      <image class="user-avatar" src="{{author.avatarUrl}}" />
+      <text class="overflow-line-1 user-nickname"> {{author.nickName}} </text>
+    </view>
+    <view wx:if="{{text}}" class="text-container">
+      {{text}}
+    </view>
+    <block wx:if="{{images && images.length > 0}}">
+      <view class="{{images && images.length === 4 ? 'row-space-between' : 'row-start'}} image-container">
+        <view
+          wx:for="{{images}}"
+          wx:item="item"
+          wx:key="index"
+          style="width:22%; {{images && images.length === 4 ? '' : 'margin: 0 32rpx 0 0'}}">
+          <imagedisplay
+            style="100%"
+            index="{{index}}"
+            filePath="{{item}}"
+            />
+        </view>
+      </view>
+    </block>
+    <audioplayer
+      style="width:100%"
+      isShow="{{audio.src}}"
+      src="{{audio.src}}"
+      isOrder="{{audio.isOrder}}"
+      duration="{{audio.duration}}"
+      bind:play="onPlay" />
+    <view class="row-start option-container">
+      <text class="option-text"> {{timer}} </text>
+      <image class="option-image" src="/assets/icons/more.png" />
+    </view>
+    <view wx:if="{{replys.length > 0}}" class="col-start replys-container">
+      <block
+        wx:for="{{replys}}"
+        wx:item="item"
+        wx:key="index">
+        <replys
+          style="width:100%"
+          replyId="{{item._id}}"
+          replyAuthor="{{item.replyAuthor}}"
+          author="{{item.author}}"
+          text="{{item.text}}"
+          images="{{item.images}}"
+          audio="{{item.audio}}"
+          createdAt="{{item.createdAt}}"
+          isShowSplitLine="{{index !== replys.length -1}}"
+          catch:play="onAudioPlay"
+          catch:reply="onReply"
+          />
+      </block>
+    </view>
+  </view>
+</view>

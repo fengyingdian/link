@@ -1,0 +1,7 @@
+<navigatebar title="{{navigateTitle}}" />
+
+<view class="col-center container">
+  <submit
+    bind:submit="onSubmit"
+    />
+</view>

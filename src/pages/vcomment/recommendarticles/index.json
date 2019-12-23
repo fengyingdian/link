@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "loadingsmall": "../../components/loadingsmall/index",
-    "Article": "../recommendarticle/index"
-  }
-}

@@ -1,11 +1,33 @@
-<loadingpage status="{{loadingPageStatus}}" />
-
-<topbar />
-
-<newusernotification />
-
-<view class='col-center container'>
-  <view style="width:100%;height:{{marginTop}}px;" />
-  <articlelist />
-  <statuslist loadingInfo="{{loadingInfo}}" />
+<view class="col-start container" style="margin:{{statusBar + 45}}px 0 0">
+  <mine
+    isShow="{{isMine && isLogin}}"
+    showType="{{selectCursorTitle}}"
+    refresh="{{refreshMine}}"/>
+  <square isShow="{{!isMine}}"/>
+  <view class="col-center top-container" style="top:{{statusBar}}px">
+    <view class="row-center flow-select-container">
+      <block wx:for="{{selects}}">
+        <text class="flow-select-item" data-title="{{item}}" bind:tap="onSelectChange"> {{item}} </text>
+      </block>
+      <view
+        class="flow-select-cursor"
+        style="left:{{offsetLeft}}px;transition: .6s left color .3s;color:{{selectCursorColor}}"> {{selectCursorTitle}} </view>
+    </view>
+  </view>
+  <view
+    class="row-space-between tab-container">
+    <button
+      class="tab-button"
+      style="width:{{isMine ? maxWidth : minWidth}}px;background:#f52828"
+      data-ismine="{{true}}"
+      bind:tap="onChangeTab">
+      {{isMine ? '+' : 'mine'}}
+    </button>
+    <button
+      class="tab-button"
+      style="width:{{!isMine ? maxWidth : minWidth}}px"
+      bind:tap="onChangeTab">
+      square
+    </button>
+  </view>
 </view>

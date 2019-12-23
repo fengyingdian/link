@@ -1,0 +1,76 @@
+@import '../../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 32rpx;
+}
+
+.content-container {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx 0;
+  box-shadow: 0 0 12rpx 6rpx #eee;
+  border: 1px solid #eee;
+}
+
+.user-container {
+  width: 100%;
+  margin: 0 0 24rpx;
+}
+
+.user-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.user-nickname {
+  flex: 1;
+  line-height: 40rpx;
+  margin: 0 0 0 12rpx;
+  color: #444;
+  font-size: 28rpx;
+}
+
+.text-container {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  margin: 0 0 24rpx;
+  color: #999;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 24rpx;
+}
+
+.option-container {
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 32rpx;
+}
+
+.option-text {
+  font-size: 24rpx;
+  color: #999;
+  flex: 1;
+}
+
+.option-image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.replys-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background: #eee;
+  margin: 0 0 32rpx;
+}

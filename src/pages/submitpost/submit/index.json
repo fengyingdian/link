@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "audioplayer": "/components/audioplayerwithoptions/index",
+    "imagedisplay": "/components/imagedisplywithactions/index",
+    "multitextinput": "/components/multitextinput/index",
+    "voicerecorder": "/components/voicerecorder/index",
+    "actionbutton": "/components/actionbutton/index"
+  },
+  "enablePullDownRefresh": false
+}

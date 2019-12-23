@@ -1,15 +1,33 @@
 import { seconds2Timer } from '../../utils/util';
 
-const innerAudioContext = wx.createInnerAudioContext();
-
 export const inneraudio = Behavior({
   behaviors: [],
   properties: {
     src: {
       type: String,
       value: '',
+      observer(val) {
+        if (val) {
+          this.init();
+        }
+      },
     },
     startTime: {
+      type: Number,
+      value: 0,
+    },
+    duration: {
+      type: Number,
+      value: 0,
+      observer(val) {
+        if (val) {
+          this.setData({
+            durationTimer: seconds2Timer(parseInt(val / 1000, 10)),
+          });
+        }
+      },
+    },
+    fileSize: {
       type: Number,
       value: 0,
     },
@@ -29,42 +47,17 @@ export const inneraudio = Behavior({
       type: Boolean,
       value: false,
     },
+    isPlaying: {
+      type: Boolean,
+      value: false,
+    },
   },
   data: {
-    isPlay: false,
     timer: seconds2Timer(0),
+    durationTimer: seconds2Timer(0),
   },
   attached() {
-    const that = this;
-    innerAudioContext.onPlay(() => {
-      Flimi.AppBase().logManager.log('innerAudio play');
-      that.setData({
-        isPlay: true,
-      });
-    });
-
-    innerAudioContext.onStop((res) => {
-      Flimi.AppBase().logManager.log('innerAudio stop', res);
-      that.end();
-    });
-
-    innerAudioContext.onEnded((res) => {
-      Flimi.AppBase().logManager.log('innerAudio end', res);
-      that.end();
-      that.setData({
-        startTime: 0,
-        timer: seconds2Timer(0),
-      });
-    });
-
-    innerAudioContext.onError((res) => {
-      Flimi.AppBase().logManager.log('innerAudio error', res.errMsg, res.errCode);
-      that.end();
-      that.setData({
-        startTime: 0,
-        timer: seconds2Timer(0),
-      });
-    });
+    Flimi.AppBase().logManager.log('attached');
   },
   detached() {
     Flimi.AppBase().logManager.log('innerAudio detached');
@@ -72,27 +65,62 @@ export const inneraudio = Behavior({
 
   methods: {
     init() {
+      Flimi.AppBase().logManager.log('init');
       this.setData({
         startTime: 0,
       });
+      const that = this;
       const {
-        src, autoplay = false, loop = false, obeyMuteSwitch = false, mixWithOther = false,
-      } = this.data;
+        src = '',
+        autoplay = false,
+        loop = false,
+        obeyMuteSwitch = false,
+        mixWithOther = false,
+      } = that.data;
       wx.setInnerAudioOption({ mixWithOther, obeyMuteSwitch });
-      (() => {
-        innerAudioContext.src = src;
-        innerAudioContext.autoplay = autoplay;
-        innerAudioContext.loop = loop;
-      })();
+
+      that.innerAudioContext = wx.createInnerAudioContext();
+      that.innerAudioContext.onPlay(() => {
+        Flimi.AppBase().logManager.log('innerAudio play', this.innerAudioContext.src);
+        that.setData({
+          isPlaying: true,
+        });
+      });
+
+      that.innerAudioContext.onStop((res) => {
+        Flimi.AppBase().logManager.log('innerAudio stop', res);
+        that.setData({
+          isPlaying: false,
+        });
+      });
+
+      that.innerAudioContext.onEnded((res) => {
+        Flimi.AppBase().logManager.log('innerAudio end', res);
+        that.end();
+      });
+
+      that.innerAudioContext.onError((res) => {
+        Flimi.AppBase().logManager.log('innerAudio error', res.errMsg, res.errCode);
+        that.end();
+      });
+
+      that.innerAudioContext.src = src;
+      that.innerAudioContext.autoplay = autoplay;
+      that.innerAudioContext.loop = loop;
     },
 
     play() {
       const that = this;
       const { startTime = 0 } = that.data;
-      innerAudioContext.seek(startTime);
-      innerAudioContext.play();
+      this.innerAudioContext.seek(startTime);
+      this.innerAudioContext.play();
+
+      if (this.interval) {
+        return;
+      }
       this.interval = setInterval(() => {
-        if (this.data.isPlay) {
+        const { isPlaying } = this.data;
+        if (isPlaying) {
           const { startTime: cur = 0 } = that.data;
           const s = cur + 1;
           this.setData({
@@ -104,13 +132,18 @@ export const inneraudio = Behavior({
     },
 
     stop() {
-      innerAudioContext.stop();
+      this.innerAudioContext.stop();
     },
 
     end() {
-      clearInterval(this.interval);
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
       this.setData({
-        isPlay: false,
+        isPlaying: false,
+        startTime: 0,
+        timer: seconds2Timer(0),
       });
     },
 
@@ -120,9 +153,9 @@ export const inneraudio = Behavior({
     //     isPause: !isPause,
     //   });
     //   if (isPause) {
-    //     innerAudioContext.play();
+    //     this.innerAudioContext.play();
     //   } else {
-    //     innerAudioContext.pause();
+    //     this.innerAudioContext.pause();
     //   }
     // },
   },

@@ -1,0 +1,27 @@
+/* pages/vcomment/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+  margin: 0 0 56px;
+}
+
+.card-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  align-items: center;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #fff;
+  background: #f52828;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+}

@@ -34,10 +34,13 @@ export const recorder = Behavior({
 
     recorderManager.onStop((res) => {
       Flimi.AppBase().logManager.log('recorder stop', res);
-      const { tempFilePath = '' } = res;
-      clearInterval(that.interval);
+      if (that.interval) {
+        clearInterval(that.interval);
+        that.interval = null;
+      }
+
       if (wx.onVoiceRecorderStop) {
-        wx.onVoiceRecorderStop(tempFilePath);
+        wx.onVoiceRecorderStop(res);
       }
 
       // do sth

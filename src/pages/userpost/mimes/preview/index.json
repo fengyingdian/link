@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "imagedisplay": "/components/imagedisplay/index",
+    "audioplayer": "/components/audioplayer/index",
+    "replys": "../replys/index"
+  },
+  "component": true
+}

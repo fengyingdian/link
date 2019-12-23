@@ -1,5 +1,0 @@
-<!-- components/influencerheader/index.wxml -->
-<view class="container">
-  <view class="name"> {{name}} </view>
-  <view class="description"> {{description}} </view>
-</view>

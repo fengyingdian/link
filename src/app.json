@@ -1,15 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/submit/index",
-    "pages/userstatus/index",
-    "pages/vcomment/index",
-    "pages/webview/index",
-    "pages/profile/index",
-    "pages/influencer/index",
-    "pages/circle/index",
-    "pages/launchcomment/index",
-    "pages/article/index",
+    "pages/mine/index",
+    "pages/square/index",
+    "pages/login/index",
+    "pages/submitpost/index",
+    "pages/submitpostmime/index",
+    "pages/userpost/index",
     "pages/networkerror/index"
   ],
   "window": {

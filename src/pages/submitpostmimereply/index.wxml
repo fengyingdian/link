@@ -1,0 +1,10 @@
+<navigatebar title="{{navigateTitle}}" />
+
+<view class="col-center container">
+  <submit
+    openId="{{openId}}"
+    nickName="{{nickName}}"
+    avatarUrl="{{avatarUrl}}"
+    bind:submit="onSubmit"
+    />
+</view>

@@ -1,0 +1,10 @@
+<button
+  class="col-start container"
+  catch:tap="onPreview"
+  >
+  <image
+    class="background"
+    mode="aspectFill"
+    src="{{filePath}}"
+    />
+</button>

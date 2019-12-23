@@ -4,17 +4,11 @@
  * Author: Break <fengyingdian@126.com>
  */
 
-// app.js
-import {
-  isLogin, login as flLogin, getSessionKey,
-} from './service/api';
-import { login as wxLogin } from './service/wxpromisify';
 import AppBase from './Base';
-import Settings from './Settings';
 
 const updateManager = wx.getUpdateManager();
 
-updateManager.onCheckForUpdate(() => {});
+updateManager.onCheckForUpdate(() => { });
 
 updateManager.onUpdateReady(() => {
   wx.showModal({
@@ -33,163 +27,103 @@ updateManager.onUpdateFailed(() => {
   });
 });
 
-
 App({
-  onLaunch() {
+  async onLaunch() {
     this.base = new AppBase();
     this.base.initialize();
 
-    this.onLaunchCount();
-
-    this.onIsLogin();
+    await this.initWxContext();
+    await this.initUserInfo();
   },
 
-  onShow(ops) {
-    this.onLaunchAppAuthorization(ops);
-
-    // check sessionKey
-    this.onCheckSessionKey();
+  onShow() {
   },
 
-  onLaunchCount() {
-    try {
-      this.globalData.launchCount = wx.getStorageSync(Settings.LAUNCH_COUNT);
-    } catch (e) {
-      this.globalData.launchCount = 0;
-    }
-    if (!this.globalData.launchCount) {
-      this.globalData.launchCount = 0;
-    }
-    wx.setStorage({
-      key: Settings.LAUNCH_COUNT,
-      data: this.globalData.launchCount + 1,
-    });
-  },
-
-  onCheckSessionKey() {
-    const that = this;
-    wx.checkSession({
-      success: () => {
-        // session_key 未过期，并且在本生命周期一直有效
-      },
-      fail: () => {
-        // session_key 已经失效，需要重新执行登录流程
-        that.getSessionKey();
-      },
-    });
-  },
-
-  onLaunchAppAuthorization(ops) {
-    const { scene } = ops;
-    if (scene === 1069) {
-      this.globalData.isLaunchAppAuthorization = true;
-    } else if (scene === 1036) {
-      this.globalData.isLaunchAppAuthorization = true;
-    } else if (scene !== 1089 && scene !== 1090 && scene !== 1038) {
-      this.globalData.isLaunchAppAuthorization = false;
-    }
-  },
-
-  onIsLogin() {
-    const that = this;
-    wxLogin()
-      .then(({ code }) => isLogin(code))
-      .then(({
-        data: {
-          status = -1, exist: user = null, token = '', openId = '', sessionKey = '', version = '',
-        },
-      }) => {
-        if (status === 0) {
-          if (user) {
-            that.globalData.userInfo = {
-              token,
-              ...user,
-            };
-            if (this.getUserInfoCallBack) {
-              this.getUserInfoCallBack();
-            }
-          }
-          if (sessionKey) {
-            that.globalData.sessionKey = sessionKey;
-          }
-          if (openId) {
-            that.globalData.openId = openId;
-          }
-          if (version) {
-            that.globalData.version = version;
-          }
+  async initWxContext() {
+    return wx.cloud.callFunction({
+      name: 'getWxContext',
+    })
+      .then(res => {
+        if (res && res.errMsg === 'cloud.callFunction:ok') {
+          wx.appContext = {
+            ...res.result,
+          };
         }
       });
   },
 
-  onGotAuthorization(ops) {
+  async initUserInfo() {
     const that = this;
-    if (!that.globalData.sessionKey) {
-      return that.getSessionKey().then((res) => {
-        if (res) {
-          return that.login(ops);
-        }
-        return false;
-      });
-    }
-    return that.login(ops);
-  },
-
-  getSessionKey() {
-    const that = this;
-    return wxLogin()
-      .catch(() => false)
-      .then(({ code }) => getSessionKey(code))
-      .then((res) => {
-        const { sessionKey } = res.data;
-        if (sessionKey) {
-          that.globalData.sessionKey = sessionKey;
-          return true;
-        }
-        return false;
-      })
-      .catch(() => false);
-  },
-
-  login(ops) {
-    const that = this;
-    const { sessionKey: code } = that.globalData;
-    const { encryptedData, iv } = ops;
-    const operateReturnedData = (res) => {
-      if (res && res.data && res.data.status === 0) {
-        const { data = {} } = res;
+    const db = await wx.cloud.database();
+    await db.collection('wechat_users').where({
+      _openid: wx.appContext.OPENID,
+    }).get().then(res => {
+      if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
+        const [user] = res.data || [];
         that.globalData.userInfo = {
-          ...data.user,
-          token: data.token,
+          ...user,
         };
-        that.globalData.openId = data.user.openId;
         if (that.getUserInfoCallBack) {
-          that.getUserInfoCallBack();
+          that.getUserInfoCallBack(true);
         }
-        return true;
+      } else if (that.getUserInfoCallBack) {
+        that.getUserInfoCallBack(false);
       }
-      return false;
-    };
-    return flLogin({ code, encryptedData, iv })
-      .then(res => operateReturnedData(res))
-      .catch(() => false);
+    })
+      .catch(() => {
+        if (that.getUserInfoCallBack) {
+          that.getUserInfoCallBack(false);
+        }
+      });
+  },
+
+  async addUserInfo(userInfo) {
+    const that = this;
+    const db = await wx.cloud.database();
+    await db.collection('wechat_users').add({
+      data: {
+        ...userInfo,
+      },
+    })
+      .then(res => {
+        if (res && res.errMsg === 'collection.add:ok') {
+          that.globalData.userInfo = {
+            ...userInfo,
+          };
+          if (that.getUserInfoCallBack) {
+            that.getUserInfoCallBack(true);
+          }
+        }
+      });
+  },
+
+  async updateUserInfo(userInfo) {
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'updateUserInfo',
+      data: {
+        userInfo,
+        openId: wx.appContext.OPENID,
+      },
+    })
+      .then((res) => {
+        Flimi.AppBase().logManager.log(res);
+        that.globalData.userInfo = {
+          ...userInfo,
+        };
+      })
+      .catch(Flimi.AppBase().logManager.error);
   },
 
   isLogin() {
     const { userInfo } = this.globalData;
     if (userInfo) {
-      return userInfo.id && userInfo.token;
+      return userInfo.nickName;
     }
     return false;
   },
 
   globalData: {
-    openId: null,
-    sessionKey: null,
     userInfo: null,
-    launchCount: 0,
-    isShownNewUserNotification: false,
-    isLaunchAppAuthorization: false,
-    version: '',
   },
 });

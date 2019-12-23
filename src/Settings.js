@@ -13,6 +13,8 @@ wx.isIphoneX = () => {
   return false;
 };
 
+wx.cloud.init();
+
 // App Settings and Constants
 const settings = {
   // file storage position

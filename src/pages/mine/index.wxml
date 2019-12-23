@@ -1,0 +1,20 @@
+<view wx:if="{{isShow}}" class="col-start container">
+  <view class="col-start card-container">
+    <block
+      wx:for="{{previews}}"
+      wx:item="item"
+      wx:key="index">
+      <preview
+        style="width:100%"
+        postId="{{item._id}}"
+        author="{{item.author}}"
+        title="{{item.title}}"
+        description="{{item.description}}"
+        images="{{item.images}}"
+        audio="{{item.audio}}"
+        createdAt="{{item.createdAt}}"
+        bind:play="onAudioPlay"
+        />
+    </block>
+  </view>
+</view>

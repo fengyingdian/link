@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "navigatebar": "../../components/navigatebar/index",
-    "posterview": "./posterview/index"
-  },
-  "enablePullDownRefresh": false
-}

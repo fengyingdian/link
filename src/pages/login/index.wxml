@@ -1,0 +1,15 @@
+<!-- pages/vcomment/index.wxml -->
+
+<navigatebar
+  isShowGoBack="{{isShowGoBack}}"
+  title="{{navigateTitle}}" />
+
+<view
+  class="col-center container">
+  <button
+    class="login"
+    open-type="getUserInfo"
+    catchgetuserinfo="onGotAuthorization">
+      登录
+  </button>
+</view>

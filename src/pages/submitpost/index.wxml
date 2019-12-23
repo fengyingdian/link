@@ -1,0 +1,9 @@
+<!-- pages/vcomment/index.wxml -->
+<navigatebar title="{{navigateTitle}}" />
+
+<view class="col-center container">
+  <submit
+    navigateTitle="{{'post submit'}}"
+    bind:submit="onSubmit"
+    />
+</view>

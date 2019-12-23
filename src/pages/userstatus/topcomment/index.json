@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "commentlist": "../../../components/commentlistrect/index",
-    "loadmorecomment": "../../../components/loadmorecomment/index"
-  }
-}

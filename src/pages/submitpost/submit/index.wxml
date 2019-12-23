@@ -1,0 +1,53 @@
+<view
+  class="col-start container">
+  <view style="width:100vw;height:{{statusBar + 45}}px" />
+  <multitextinput
+    focus="{{false}}"
+    placeholder="{{'标题'}}"
+    bind:change="onTitleChange" />
+  <multitextinput
+    focus="{{false}}"
+    placeholder="{{'介绍'}}"
+    bind:change="onDescriptionChange" />
+  <view class="col-start content-container">
+    <voicerecorder
+      isShow="{{isRecording}}"
+      style="width:100%"
+      bind:stop="onStopRecorder" />
+    <audioplayer
+      isShow="{{!isRecording && tempFilePath}}"
+      style="width:100%"
+      src="{{tempFilePath}}"
+      duration="{{duration}}"
+      fileSize="{{fileSize}}"
+      bind:delete="onDeleteAudio"/>
+    <view class="{{images && images.length === 4 ? 'row-space-between' : 'row-start'}} image-container">
+      <view
+        wx:for="{{images}}"
+        wx:item="item"
+        wx:key="index"
+        style="width:22%; {{images && images.length === 4 ? '' : 'margin: 0 32rpx 0 0'}}">
+        <imagedisplay
+          style="100%"
+          index="{{index}}"
+          filePath="{{item}}"
+          bind:delete="onDeleteImage"
+          />
+      </view>
+    </view>
+  </view>
+
+  <view class="row-start button-container">
+    <button class="submit-button" disabled="{{false}}" bind:tap="onSubmit">
+      <image
+        class="icon"
+        src="/assets/icons/submit.png"
+        />
+    </button>
+    <block wx:for="{{actionKeys}}" wx:item="item" wx:key="index">
+      <block wx:if="{{actions[item].isShow}}">
+        <actionbutton icon="{{actions[item].icon}}" bind:tap="{{actions[item].action}}"/>
+      </block>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "navigatebar": "/components/navigatebar/index",
+    "audioplayer": "/components/audioplayer/index",
+    "imagedisplay": "/components/imagedisplay/index",
+    "visitors": "./visitors/index",
+    "mimes": "./mimes/index"
+  },
+  "enablePullDownRefresh": false
+}

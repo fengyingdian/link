@@ -1,0 +1,40 @@
+<view class="col-start container">
+  <view class="col-start content-container" catch:tap="onReply">
+    <view class="row-start user-container">
+      <text class="user-text"> {{author.nickName}} </text>
+      <block wx:if="{{replyAuthor && replyAuthor.nickName}}">
+        <text class="user-text" style="color:#ddd;margin:0 12rpx"> {{'reply'}} </text>
+        <text class="user-text"> {{replyAuthor.nickName}} </text>
+      </block>
+    </view>
+    <view wx:if="{{text}}" class="text-container">
+      {{text}}
+    </view>
+    <block wx:if="{{images && images.length > 0}}">
+      <view class="{{images && images.length === 4 ? 'row-space-between' : 'row-start'}} image-container">
+        <view
+          wx:for="{{images}}"
+          wx:item="item"
+          wx:key="index"
+          style="width:22%; {{images && images.length === 4 ? '' : 'margin: 0 32rpx 0 0'}}">
+          <imagedisplay
+            style="100%"
+            index="{{index}}"
+            filePath="{{item}}"
+            />
+        </view>
+      </view>
+    </block>
+    <audioplayer
+      style="width:100%"
+      isShow="{{audio.src}}"
+      src="{{audio.src}}"
+      isOrder="{{audio.isOrder}}"
+      duration="{{audio.duration}}"
+      catch:play="onPlay" />
+    <view class="row-start option-container" style="{{isShowSplitLine ? 'border-bottom: 1px solid #ddd' : ''}}">
+      <text class="option-text"> {{timer}} </text>
+      <image class="option-image" src="/assets/icons/more.png" />
+    </view>
+  </view>
+</view>

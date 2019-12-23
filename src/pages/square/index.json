@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "preview": "./preview/index"
+  },
+  "enablePullDownRefresh": false
+}

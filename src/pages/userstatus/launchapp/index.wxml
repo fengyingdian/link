@@ -1,2 +1,0 @@
-<!--components/launchapp/index.wxml-->
-<button class="launchApp" open-type="launchApp" binderror="launchAppError">APP内打开</button>

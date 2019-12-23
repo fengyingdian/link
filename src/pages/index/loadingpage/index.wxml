@@ -1,8 +1,0 @@
-<flyup status="{{status}}">
-  <view class="col-center container">
-    <view class="col-center" style="align-items:center">
-      <image class="loading" src="/assets/icons/loading.gif" />
-      <image class="title" src="/assets/icons/appName.png" />
-    </view>
-  </view>
-</flyup>

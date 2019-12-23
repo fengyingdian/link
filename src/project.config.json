@@ -3,39 +3,67 @@
 	"compileType": "miniprogram",
 	"setting": {
 		"urlCheck": true,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"nodeModules": true,
-		"uglifyFileName": true
-	},
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+  },
+  "cloudfunctionRoot": "./functions/",
 	"libVersion": "2.5.0",
-	"appid": "wxdd31a5a069098b0d",
+	"appid": "wxd2bb4b71e03311dc",
 	"projectname": "flimi",
 	"packOptions": {
 		"ignore": []
 	},
 	"debugOptions": {},
-  "condition": {},
-  "miniprogram": {
-    "current": 0,
-    "list": [
-      {
-        "id": 0,
-        "name": "demo_page",
-        "pathName": "pages/demo_page/index"
-      },
-      {
-        "id": 1,
-        "name": "profile",
-        "pathName": "pages/profile/index"
-      },
-      {
-        "id": 2,
-        "name": "parallax",
-        "pathName": "pages/parallax/index"
-      }
-    ]
-  }
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/index",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userpost",
+					"pathName": "pages/userpost/index",
+					"scene": null
+				}
+			]
+		}
+	}
 }

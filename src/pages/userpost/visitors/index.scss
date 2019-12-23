@@ -1,0 +1,31 @@
+/* pages/vcomment/index.wxss */
+@import '../../../common/scss/common.scss';
+
+.container {
+  align-self: flex-end;
+  align-items: center;
+  background: #111;
+  margin: 0 0 32rpx;
+}
+
+.user-container {
+  align-items: center;
+  padding: 16rpx;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  background: #111;
+}
+
+.user-avatar {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+}
+
+.user-nickname {
+  flex: 1;
+  line-height: 40rpx;
+  margin: 0 0 0 12rpx;
+  color: #444;
+  font-size: 28rpx;
+}

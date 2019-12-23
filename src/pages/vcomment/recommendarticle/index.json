@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "recommendcard": "../recommendcard/index",
-    "recommendcardprime": "../recommendcardprime/index"
-  }
-}

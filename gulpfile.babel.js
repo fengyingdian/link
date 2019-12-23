@@ -22,17 +22,19 @@ import gulp, { series, parallel } from 'gulp';
 
 const wxSource = ['./src/app.js', './src/app.json', './src/app.wxss', './src/project.config.json'];
 
-const jsSource = ['./src/**/*.js'];
+const jsSource = ['./src/**/*.js', '!./src/functions/**/*.js'];
 
-const jsonSrouce = ['./src/**/*.json'];
+const jsonSrouce = ['./src/**/*.json', '!./src/functions/**/*.json'];
 
-const styleSrouce = ['./src/**/*.wxss', './src/**/*.scss', '!./src/styles/**'];
+const styleSrouce = ['./src/**/*.wxss', './src/**/*.scss', '!./src/styles/**', '!./src/functions/**/*.scss', '!./src/functions/**/*.css'];
 
 const assetSource = ['./src/assets/**'];
 
 const viewSource = ['./src/**/*.wxml'];
 
 const isProduction = process.env.NODE_ENV === 'production';
+
+const cloudSource = ['./src/functions/**/*.*'];
 
 //
 // ─── CLEAN ──────────────────────────────────────────────────────────────────────
@@ -136,6 +138,10 @@ export const copyWXResource = () => gulp
   // .pipe(replace(/..\/dist\//g, './'))
   .pipe(gulp.dest('./dist'));
 
+export const copyCloudResource = () => gulp
+  .src(cloudSource)
+  .pipe(gulp.dest('./dist/functions'));
+
 //
 // ─── NPM SCRIPTS ────────────────────────────────────────────────────────────────
 //
@@ -145,6 +151,7 @@ export const build = series(
   parallel(jsBuild, jsonBuild, styleBuild, viewBuild),
   parallel(copyAssets),
   parallel(copyWXResource),
+  parallel(copyCloudResource),
 );
 
 export const watch = () => {
@@ -160,4 +167,6 @@ export const watch = () => {
   gulp.watch(viewSource, viewBuild);
   // watch wxsource
   gulp.watch(wxSource, copyWXResource);
+  // watch cloud source
+  gulp.watch(cloudSource, copyCloudResource);
 };

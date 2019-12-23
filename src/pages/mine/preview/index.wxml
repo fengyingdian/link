@@ -1,0 +1,41 @@
+<view class="col-start container">
+  <view class="col-start content-container" bind:tap="onDetail">
+    <view class="row-start user-container">
+      <image class="user-avatar" src="{{author.avatarUrl}}" />
+      <text class="overflow-line-1 user-nickname"> {{author.nickName}} </text>
+      <text class="overflow-line-1 user-time"> {{timer}} </text>
+    </view>
+    <view wx:if="{{title}}" class="title-container">
+      {{title}}
+    </view>
+    <view wx:if="{{description}}" class="description-container">
+      {{description}}
+    </view>
+    <block wx:if="{{images && images.length > 0}}">
+      <view class="row-space-between image-container">
+        <view
+          wx:for="{{images}}"
+          wx:item="item"
+          wx:key="index"
+          style="flex:1;border:1px solid #333;min-width:50%;box-sizing:border-box;">
+          <imagedisplay
+            style="100%"
+            index="{{index}}"
+            filePath="{{item}}"
+            />
+        </view>
+      </view>
+    </block>
+    <audioplayer
+      style="width:100%"
+      isShow="{{audio.src}}"
+      isOrder="{{audio.isOrder}}"
+      src="{{audio.src}}"
+      duration="{{audio.duration}}"
+      bind:play="onPlay" />
+    <view class="row-start option-container">
+      <text class="option-text"> {{timer}} </text>
+      <image class="option-image" src="/assets/icons/more.png" />
+    </view>
+  </view>
+</view>

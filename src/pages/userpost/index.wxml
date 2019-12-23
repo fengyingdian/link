@@ -1,0 +1,49 @@
+<navigatebar title="{{navigateTitle}}" />
+
+<view
+  class="col-start container">
+  <view style="width:100%;height:{{statusBar + 45}}px" />
+  <view class="col-start post-container">
+    <view wx:if="{{title}}" class="title-container">
+      {{title}}
+    </view>
+    <view wx:if="{{description}}" class="description-container">
+      {{description}}
+    </view>
+    <block wx:if="{{images && images.length > 0}}">
+      <view class="row-space-between image-container">
+        <view
+          wx:for="{{images}}"
+          wx:item="item"
+          wx:key="index"
+          style="flex:1;border:1px solid #333;min-width:50%;box-sizing:border-box;">
+          <imagedisplay
+            style="100%"
+            index="{{index}}"
+            filePath="{{item}}"
+            />
+        </view>
+      </view>
+    </block>
+    <audioplayer
+      style="width:100%"
+      isShow="{{audio.src}}"
+      src="{{audio.src}}"
+      duration="{{audio.duration}}"
+      fileSize="{{audio.fileSize}}"
+      isOrder="{{audio.src}}" />
+  </view>
+  <view class="col-start rest-container">
+    <visitors style="align-self:flex-end" visitors="{{visitors}}" />
+    <mimes
+      style="width:100%"
+      postId="{{postId}}"
+      refresh="{{refreshMimes}}"/>
+  </view>
+  <button
+    class="submit-button"
+    disabled="{{false}}"
+    bind:tap="onMime">
+    mime
+  </button>
+</view>

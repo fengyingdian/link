@@ -32,6 +32,10 @@ Component({
     },
     home: {
       type: Boolean,
+      value: false,
+    },
+    isShowGoBack: {
+      type: Boolean,
       value: true,
     },
     status: {
@@ -54,7 +58,7 @@ Component({
 
   ready() {
     this.setData({
-      goBack: Boolean(getCurrentPages().length > 1),
+      goBack: Boolean(getCurrentPages().length > 1) && this.data.isShowGoBack,
     });
   },
 

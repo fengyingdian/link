@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigatebar": "/components/navigatebar/index",
+    "submit": "./submit/index"
+  },
+  "enablePullDownRefresh": false
+}

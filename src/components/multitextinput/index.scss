@@ -1,0 +1,28 @@
+/* components/launchapp/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  margin: 32rpx 0;
+}
+
+.input {
+  color: #999;
+  padding: 32rpx;
+  width: 622rpx;
+  line-height: 40rpx;
+  height: 160rpx;
+  font-size: 28rpx;
+  text-align: left;
+  position: relative;
+  z-index: 20;
+  background: #eee;
+}
+
+.placeholder {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #999;
+}

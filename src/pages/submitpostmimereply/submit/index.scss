@@ -1,0 +1,46 @@
+/* pages/vcomment/index.wxss */
+@import '../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+}
+
+.content-container {
+  align-items: center;
+  width: 686rpx;
+}
+
+.button-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 0;
+  position: fixed;
+  bottom: 0;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 32rpx 32rpx;
+}
+
+.submit-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 300;
+  height: 48px;
+  color: #fff;
+  background: #f52828;
+  flex: 1;
+  border-radius: 100px;
+  box-sizing: border-box;
+  margin: 0 16px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+}

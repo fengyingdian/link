@@ -1,68 +1,105 @@
-/*
- * File: index.js
- * Project: flimi
- * File Created: Saturday, 20th April 2019 10:34:22 pm
- * Author: break (fengyingdian@126.com)
- */
+import { login } from '../../behavior/login/index';
 
 Component({
+  behaviors: [login],
   properties: {
-
   },
-
   data: {
-    // loading page
-    loadingPageStatus: 1,
+    // status bar height, for margin top
+    statusBar: wx.getSystemInfoSync().statusBarHeight,
 
-    // margin
-    marginTop: wx.getSystemInfoSync().statusBarHeight + 45,
+    minWidth: 82,
 
-    // load info
-    loadingInfo: {
-      // loading count
-      loadingCount: 0,
-      // is refresh
-      isRefresh: false,
-    },
+    maxWidth: wx.getSystemInfoSync().windowWidth - 64 - 82,
 
-    // loadding 1.5 articles?
-    isLoadingArticles: false,
+    // navigate title
+    navigateTitle: '',
+    // navigate z-index fro some reasons
+    // we need to set navigate bar's z-index to  0
+    navigateIndexZ: 10,
+
+    // check if is login
+    isLogin: false,
+
+    // is mine tab
+    isMine: true,
+
+    // offset left
+    offsetLeft: 0,
+
+    // select list
+    selects: ['post', 'mime', 'pin'],
+
+    selectCursorTitle: 'post',
+
+    // refresh mine
+    refreshMine: 0,
   },
 
   methods: {
-    onReady() {
+    async onLoad() {
       const that = this;
-      setTimeout(() => {
+      that.checkLogin();
+
+      wx.previewRefresh = () => {
         that.setData({
-          loadingPageStatus: 0,
+          selectCursorTitle: 'post',
+          selectCursorColor: '#000',
+          refreshMine: that.data.refreshMine + 1,
         });
-      }, 300);
+      };
     },
 
-    onPullDownRefresh() {
-      setTimeout(() => {
-        wx.stopPullDownRefresh();
-      }, 300);
-      this.loadingMoreStatus(true);
-    },
-
-    onReachBottom() {
-      this.loadingMoreStatus(false);
-    },
-
-    loadingMoreStatus(isRefresh = false) {
+    async onSelectChange(opts) {
+      Flimi.AppBase().logManager.log({ opts });
+      const {
+        target: { offsetLeft = 0, dataset: { title = '' } } = {},
+      } = opts;
       this.setData({
-        loadingInfo: {
-          isRefresh,
-          loadingCount: this.data.loadingInfo.loadingCount + 1,
-        },
+        selectCursorTitle: '',
+        selectCursorColor: '#fff',
+        offsetLeft,
       });
+      setTimeout(() => {
+        this.setData({
+          refreshMine: this.data.refreshMine + 1,
+          selectCursorTitle: title,
+          selectCursorColor: '#000',
+        });
+      }, 150);
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {},
-  },
+    async onChangeTab(opts) {
+      const { target: { dataset: { ismine = false } } } = opts || {};
+      const { isMine } = this.data;
+      if (isMine && isMine === ismine) {
+        this.onSubmit();
+      } else {
+        this.setData({
+          isMine: ismine,
+        });
+      }
+    },
 
+    onSubmit() {
+      const that = this;
+      if (that.data.isLogin) {
+        wx.navigateTo({
+          url: '/pages/submitpost/index',
+        });
+      } else {
+        wx.navigateTo({
+          url: '/pages/login/index',
+        });
+      }
+    },
+
+    onShareAppMessage() {
+      return {
+        path: `/pages/home/index?shareOpenId=${wx.appContext.OPENID}`,
+        title: 'link',
+        imageUrl: '',
+      };
+    },
+  },
 });

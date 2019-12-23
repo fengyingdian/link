@@ -1,0 +1,87 @@
+@import '../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 32rpx;
+}
+
+.user-container {
+  width: 100%;
+  margin: 0 0 24rpx;
+}
+
+.user-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.user-nickname {
+  line-height: 40rpx;
+  margin: 0 0 0 24rpx;
+  color: #444;
+  font-size: 28rpx;
+}
+
+.user-time {
+  flex: 1;
+  line-height: 40rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: right;
+}
+
+.content-container {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx 0;
+  margin: 0 0 8rpx;
+  box-shadow: 0 0 24rpx 12rpx #eee;
+}
+
+.title-container {
+  width: 100%;
+  font-size: 40rpx;
+  font-weight: 900;
+  line-height: 60rpx;
+  text-align: left;
+  margin: 0 0 24rpx;
+}
+
+.description-container {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  margin: 0 0 48rpx;
+  color: #666;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 24rpx;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.option-container {
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 32rpx;
+}
+
+.option-text {
+  font-size: 24rpx;
+  color: #999;
+  flex: 1;
+}
+
+.option-image {
+  width: 34rpx;
+  height: 34rpx;
+}

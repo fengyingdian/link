@@ -1,0 +1,65 @@
+/* pages/vcomment/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+}
+
+.post-container {
+  align-items: center;
+  width: 686rpx;
+  padding: 32rpx;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  margin: 64rpx;
+  border-radius: 20px;
+  box-shadow: 0 0 32px 16px #eee;
+}
+
+.title-container {
+  width: 100%;
+  font-size: 40rpx;
+  font-weight: 900;
+  line-height: 60rpx;
+  text-align: left;
+  margin: 0 0 24rpx;
+}
+
+.description-container {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  margin: 0 0 48rpx;
+  color: #666;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 24rpx;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.rest-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 32rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #fff;
+  background: #f52828;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+}
+

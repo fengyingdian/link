@@ -19,4 +19,8 @@ export const pageScrollTo = wxPromisify(wx.pageScrollTo);
 
 export const login = wxPromisify(wx.login);
 
+export const getSetting = wxPromisify(wx.getSetting);
+
+export const authorize = wxPromisify(wx.authorize);
+
 export const startGyroscope = wxPromisify(wx.startGyroscope);

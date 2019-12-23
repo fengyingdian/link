@@ -1,0 +1,16 @@
+/* pages/vcomment/index.wxss */
+@import '../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+}
+
+.card-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 32rpx;
+  margin: 0 0 64rpx;
+  align-items: center;
+}
+

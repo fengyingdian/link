@@ -1,0 +1,73 @@
+@import '../../../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100%;
+}
+
+.content-container {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx 0;
+}
+
+.user-container {
+  width: 100%;
+  margin: 0 0 24rpx;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.user-text {
+  line-height: 40rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.text-container {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  margin: 0 0 24rpx;
+  color: #999;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 24rpx;
+}
+
+.reply-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background: #eee;
+  padding: 32rpx;
+  margin: 0 0 24rpx;
+}
+
+.option-container {
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 32rpx;
+}
+
+.option-text {
+  font-size: 24rpx;
+  color: #999;
+  flex: 1;
+}
+
+.option-image {
+  width: 34rpx;
+  height: 34rpx;
+}

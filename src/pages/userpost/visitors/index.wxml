@@ -1,0 +1,7 @@
+<view class="row-start container">
+  <block wx:for="{{visitors}}" wx:for-item="item" wx:for-index="index">
+    <view class="col-center user-container">
+      <image class="user-avatar" src="{{item.avatarUrl}}" />
+    </view>
+  </block>
+</view>
