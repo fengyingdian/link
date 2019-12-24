@@ -1,9 +1,10 @@
 {
   "component": true,
   "usingComponents": {
+    "textinput": "/components/textinput/index",
+    "multitextinput": "/components/multitextinput/index",
     "audioplayer": "/components/audioplayerwithoptions/index",
     "imagedisplay": "/components/imagedisplywithactions/index",
-    "multitextinput": "/components/multitextinput/index",
     "voicerecorder": "/components/voicerecorder/index",
     "actionbutton": "/components/actionbutton/index"
   },

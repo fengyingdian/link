@@ -24,49 +24,12 @@ Component({
     // is mine tab
     isMine: true,
 
-    // offset left
-    offsetLeft: 0,
-
-    // select list
-    selects: ['post', 'mime', 'pin'],
-
-    selectCursorTitle: 'post',
-
-    // refresh mine
-    refreshMine: 0,
   },
 
   methods: {
     async onLoad() {
       const that = this;
       that.checkLogin();
-
-      wx.previewRefresh = () => {
-        that.setData({
-          selectCursorTitle: 'post',
-          selectCursorColor: '#000',
-          refreshMine: that.data.refreshMine + 1,
-        });
-      };
-    },
-
-    async onSelectChange(opts) {
-      Flimi.AppBase().logManager.log({ opts });
-      const {
-        target: { offsetLeft = 0, dataset: { title = '' } } = {},
-      } = opts;
-      this.setData({
-        selectCursorTitle: '',
-        selectCursorColor: '#fff',
-        offsetLeft,
-      });
-      setTimeout(() => {
-        this.setData({
-          refreshMine: this.data.refreshMine + 1,
-          selectCursorTitle: title,
-          selectCursorColor: '#000',
-        });
-      }, 150);
     },
 
     async onChangeTab(opts) {

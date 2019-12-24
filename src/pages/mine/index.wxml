@@ -1,4 +1,14 @@
 <view wx:if="{{isShow}}" class="col-start container">
+  <view class="col-center top-container" style="top:{{statusBar}}px">
+    <view class="row-center flow-select-container">
+      <block wx:for="{{selects}}">
+        <text class="flow-select-item" data-title="{{item}}" bind:tap="onSelectChange"> {{item}} </text>
+      </block>
+      <view
+        class="flow-select-cursor"
+        style="left:{{offsetLeft}}px;transition: .6s left color .3s;color:{{selectCursorColor}}"> {{selectCursorTitle}} </view>
+    </view>
+  </view>
   <view class="col-start card-container">
     <block
       wx:for="{{previews}}"

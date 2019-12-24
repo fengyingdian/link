@@ -1,0 +1,22 @@
+<view wx:if="{{images.length > 0}}" class="row-center image-row-container">
+  <view
+    class="image-container"
+    style="width:{{firstWidth*100}}%">
+    <view class="image-inner">
+      <imagedisplay filePath="{{firstImage}}" />
+    </view>
+  </view>
+  <view
+    wx:if="{{restImages.length > 0}}"
+    class="col-center image-col-container"
+    style="width:{{restWidth * 100}}%">
+    <view
+      class="image-container"
+      style="width:100%"
+      wx:for="{{restImages}}">
+      <view class="image-inner">
+        <imagedisplay filePath="{{item}}" />
+      </view>
+    </view>
+  </view>
+</view>

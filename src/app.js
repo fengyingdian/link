@@ -59,7 +59,7 @@ App({
       _openid: wx.appContext.OPENID,
     }).get().then(res => {
       if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
-        const [user] = res.data || [];
+        const [user] = res.data;
         that.globalData.userInfo = {
           ...user,
         };

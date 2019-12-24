@@ -1,4 +1,5 @@
 import { login } from '../../behavior/login/index';
+import { formatTime } from '../../utils/util';
 
 Component({
   behaviors: [login],
@@ -25,11 +26,11 @@ Component({
     // we need to set navigate bar's z-index to  0
     navigateIndexZ: 10,
 
-    // check if is login
-    isLogin: false,
-
     // refresh comments
     refreshMimes: 0,
+
+    // pined
+    isPined: false,
   },
 
   lifetimes: {
@@ -41,6 +42,7 @@ Component({
   methods: {
     async init() {
       await this.getPostData();
+      await this.getPostPins();
       await this.updateVisitor();
     },
 
@@ -56,8 +58,30 @@ Component({
         .then(res => {
           if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
             const [post = {}] = res.data;
+            const { createdAt = -1 } = post;
+            const timer = formatTime(new Date(createdAt));
             that.setData({
               ...post,
+              timer,
+            });
+          }
+        });
+    },
+
+    async getPostPins() {
+      const { OPENID } = wx.appContext;
+      const that = this;
+      const { postId = '' } = that.data;
+      const db = await wx.cloud.database();
+      db.collection('user_post_pins').where({
+        postId,
+      }).get()
+        .then(res => {
+          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
+            const { data = [] } = res;
+            that.setData({
+              pins: data,
+              isPind: data.find(({ _openid: openId }) => openId === OPENID),
             });
           }
         });
@@ -72,9 +96,10 @@ Component({
         data: {
           visitors: [
             {
-              openid: OPENID,
+              openId: OPENID,
               nickName,
               avatarUrl,
+              createdAt: Date.now(),
             },
             ...visitors.filter(item => item.openid && item.openid !== OPENID),
           ],
@@ -83,6 +108,44 @@ Component({
       })
         .then(Flimi.AppBase().logManager.log)
         .catch(Flimi.AppBase().logManager.error);
+    },
+
+    async onPin() {
+      const that = this;
+      const { isPined = false, postId = '' } = that.data;
+      const {
+        userInfo: {
+          nickName = '', avatarUrl = '',
+        } = {},
+      } = getApp().globalData;
+      const { OPENID } = wx.appContext;
+      if (isPined) {
+        wx.cloud.callFunction({
+          name: 'removeUserPostPin',
+          data: {
+            openId: OPENID,
+            postId,
+          },
+        }).then(Flimi.AppBase().logManager.log)
+          .catch(Flimi.AppBase().logManager.error);
+      } else {
+        const db = await wx.cloud.database();
+        await db.collection('user_post_pins').add({
+          data: {
+            postId,
+            nickName,
+            avatarUrl,
+            createdAt: Date.now(),
+          },
+        })
+          .then(res => {
+            if (res && res.errMsg === 'collection.add:ok') {
+              that.setData({
+                isPined: true,
+              });
+            }
+          });
+      }
     },
 
     onMime() {

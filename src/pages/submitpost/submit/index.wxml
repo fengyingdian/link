@@ -1,7 +1,7 @@
 <view
   class="col-start container">
   <view style="width:100vw;height:{{statusBar + 45}}px" />
-  <multitextinput
+  <textinput
     focus="{{false}}"
     placeholder="{{'标题'}}"
     bind:change="onTitleChange" />

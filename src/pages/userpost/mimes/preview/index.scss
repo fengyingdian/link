@@ -3,7 +3,9 @@
 .container {
   align-items: center;
   width: 100%;
-  margin: 0 0 32rpx;
+  border-bottom: 12px solid #eee;
+  box-sizing: border-box;
+  background: #fff;
 }
 
 .content-container {
@@ -12,7 +14,6 @@
   box-sizing: border-box;
   padding: 32rpx 32rpx 0;
   box-shadow: 0 0 12rpx 6rpx #eee;
-  border: 1px solid #eee;
 }
 
 .user-container {

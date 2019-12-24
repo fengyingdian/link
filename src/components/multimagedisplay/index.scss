@@ -1,0 +1,45 @@
+@import '../../common/scss/common.scss';
+
+.image-row-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background: #eee;
+  padding: 1px;
+  margin: 0 0 24rpx;
+}
+
+.image-col-container {
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  background: #eee;
+};
+
+.image-container {
+  flex: 1;
+  align-items: center;
+  // width: ${props => props.width};
+  box-sizing: border-box;
+  border: 2px solid #eee;
+  position: relative;
+  &::before {
+    content: " ";
+    display: block;
+    padding: 100% 0 0;
+  }
+}
+
+.image-inner {
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #333;
+  overflow: hidden;
+}

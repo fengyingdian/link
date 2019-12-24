@@ -150,13 +150,23 @@ Component({
     // ─── SUBMIT ──────────────────────────────────────────────────────
     //
     async onSubmit() {
+      const {
+        tempFilePath = '', duration, fileSize, images = [], text = '',
+      } = this.data;
+      if (!text && !images.length && !tempFilePath) {
+        wx.showToast({
+          title: '请添加内容',
+          icon: 'none',
+          duration: 1500,
+          mask: false,
+        });
+        return;
+      }
       const { userInfo = {} } = getApp().globalData;
       if (!userInfo.nickName) {
         return;
       }
-      const {
-        tempFilePath = '', duration, fileSize, images = [], text = '',
-      } = this.data;
+
       // upload audio
       const src = await this.uploadFile(`user/post/audio/${wx.appContext.OPENID}`, tempFilePath);
       // upload images

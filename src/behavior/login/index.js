@@ -6,6 +6,10 @@ export const login = Behavior({
       value: '',
     },
   },
+  data: {
+    // check if is login
+    isLogin: false,
+  },
   attached() {
     Flimi.AppBase().logManager.log('login attached');
   },

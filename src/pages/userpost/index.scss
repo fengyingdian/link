@@ -1,20 +1,61 @@
 /* pages/vcomment/index.wxss */
 @import '../../common/scss/common.scss';
 
+body{
+  background: #eee;
+}
+
 .container {
   align-items: center;
   width: 100vw;
+  min-height: 100vh;
+  background: #eee;
+  box-sizing: border-box;
+  padding: 0 0 64rpx;
+}
+
+.header-container {
+  align-items: center;
+  width: 100%;
+  padding: 32rpx 32rpx 64rpx;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #e66465, #9198e5);
+}
+
+.creator-container {
+  align-self: flex-start;
+  align-items: center;
+  margin: 0 0 24rpx;
+  box-sizing: border-box;
+  padding: 32rpx;
+  background: rgba(240,240,240, .3);
+  width: 100%;
+  border-radius: 12px;
+}
+
+.creator-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.creator-nickname {
+  font-size: 40rpx;
+  font-weight: 900;
+  line-height: 60rpx;
+  color: #111;
+}
+
+.creator-description {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  color: #333;
 }
 
 .post-container {
   align-items: center;
-  width: 686rpx;
-  padding: 32rpx;
+  width: 100%;
   box-sizing: border-box;
-  border: 1px solid #eee;
-  margin: 64rpx;
-  border-radius: 20px;
-  box-shadow: 0 0 32px 16px #eee;
 }
 
 .title-container {
@@ -23,6 +64,7 @@
   font-weight: 900;
   line-height: 60rpx;
   text-align: left;
+  color: #fff;
   margin: 0 0 24rpx;
 }
 
@@ -32,16 +74,17 @@
   line-height: 40rpx;
   text-align: left;
   margin: 0 0 48rpx;
-  color: #666;
+  color: #eee;
 }
 
 .image-container {
   align-items: center;
   width: 100%;
   margin: 0 0 24rpx;
-  border: 2px solid #333;
   box-sizing: border-box;
   flex-wrap: wrap;
+  padding: 32rpx;
+  background: rgba(240,240,240,0.3);
 }
 
 .rest-container {
@@ -61,5 +104,24 @@
   position: fixed;
   bottom: 0;
   z-index: 10;
+}
+
+.option-container {
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 32rpx 0;
+  border-top: 1rpx solid #eee;
+  padding: 24rpx 0 0;
+}
+
+.option-text {
+  font-size: 24rpx;
+  color: #eee;
+}
+
+.option-image {
+  width: 34rpx;
+  height: 34rpx;
 }
 

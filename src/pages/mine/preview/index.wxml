@@ -11,21 +11,7 @@
     <view wx:if="{{description}}" class="description-container">
       {{description}}
     </view>
-    <block wx:if="{{images && images.length > 0}}">
-      <view class="row-space-between image-container">
-        <view
-          wx:for="{{images}}"
-          wx:item="item"
-          wx:key="index"
-          style="flex:1;border:1px solid #333;min-width:50%;box-sizing:border-box;">
-          <imagedisplay
-            style="100%"
-            index="{{index}}"
-            filePath="{{item}}"
-            />
-        </view>
-      </view>
-    </block>
+    <multimagedisplay images="{{images}}" style="width:100%"/>
     <audioplayer
       style="width:100%"
       isShow="{{audio.src}}"
