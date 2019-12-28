@@ -12,6 +12,7 @@ Component({
         description,
         audio,
         images,
+        words,
       } = opts.detail || {};
       // add to db
       const db = await wx.cloud.database();
@@ -22,6 +23,7 @@ Component({
           },
           audio,
           images,
+          words,
           title,
           description,
           createdAt: Date.now(),

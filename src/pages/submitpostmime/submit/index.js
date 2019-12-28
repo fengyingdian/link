@@ -17,17 +17,7 @@ Component({
       },
     },
   },
-  data: {
-    // status bar height, for margin top
-    statusBar: wx.getSystemInfoSync().statusBarHeight,
-
-    // navigate z-index fro some reasons
-    // we need to set navigate bar's z-index to  0
-    navigateIndexZ: 10,
-
-    // check if is login
-    isLogin: false,
-  },
+  data: {},
 
   lifetimes: {
     attached() {
@@ -123,7 +113,7 @@ Component({
       }
     },
 
-    onDeleteAudio() {
+    onRemoveAudio() {
       const { actions = {} } = this.data;
       actions.audio.isShow = true;
       this.setData({
@@ -141,7 +131,7 @@ Component({
       this.upload();
     },
 
-    onDeleteImage(opts) {
+    onRemoveImage(opts) {
       const { detail: { filePath = '' } = {} } = opts;
       this.delete(filePath);
     },

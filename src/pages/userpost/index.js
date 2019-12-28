@@ -1,8 +1,8 @@
 import { login } from '../../behavior/login/index';
-import { formatTime } from '../../utils/util';
+import { userpostinfo } from '../../behavior/userpostinfo/index';
 
 Component({
-  behaviors: [login],
+  behaviors: [login, userpostinfo],
   properties: {
     postId: {
       type: String,
@@ -42,109 +42,32 @@ Component({
   methods: {
     async init() {
       await this.getPostData();
-      await this.getPostPins();
       await this.updateVisitor();
-    },
-
-    async getPostData() {
-      const that = this;
-      const { postId = '' } = this.data;
-      const db = await wx.cloud.database();
-      await db.collection('user_posts')
-        .where({
-          _id: postId,
-        })
-        .get()
-        .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
-            const [post = {}] = res.data;
-            const { createdAt = -1 } = post;
-            const timer = formatTime(new Date(createdAt));
-            that.setData({
-              ...post,
-              timer,
-            });
-          }
-        });
-    },
-
-    async getPostPins() {
-      const { OPENID } = wx.appContext;
-      const that = this;
-      const { postId = '' } = that.data;
-      const db = await wx.cloud.database();
-      db.collection('user_post_pins').where({
-        postId,
-      }).get()
-        .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
-            const { data = [] } = res;
-            that.setData({
-              pins: data,
-              isPind: data.find(({ _openid: openId }) => openId === OPENID),
-            });
-          }
-        });
     },
 
     async updateVisitor() {
       const { OPENID } = wx.appContext;
       const { userInfo: { nickName, avatarUrl } = {} } = getApp().globalData;
       const { visitors = [], postId } = this.data;
-      wx.cloud.callFunction({
-        name: 'updateUserPost',
-        data: {
-          visitors: [
-            {
-              openId: OPENID,
-              nickName,
-              avatarUrl,
-              createdAt: Date.now(),
-            },
-            ...visitors.filter(item => item.openid && item.openid !== OPENID),
-          ],
-          postId,
-        },
-      })
-        .then(Flimi.AppBase().logManager.log)
-        .catch(Flimi.AppBase().logManager.error);
-    },
-
-    async onPin() {
-      const that = this;
-      const { isPined = false, postId = '' } = that.data;
-      const {
-        userInfo: {
-          nickName = '', avatarUrl = '',
-        } = {},
-      } = getApp().globalData;
-      const { OPENID } = wx.appContext;
-      if (isPined) {
+      const isExist = visitors.find(item => item.openId === OPENID);
+      if (!isExist) {
         wx.cloud.callFunction({
-          name: 'removeUserPostPin',
+          name: 'updateUserPostVisitor',
           data: {
-            openId: OPENID,
+            visitors: [
+              {
+                openId: OPENID,
+                nickName,
+                avatarUrl,
+                createdAt: Date.now(),
+              },
+              ...visitors,
+            ],
             postId,
-          },
-        }).then(Flimi.AppBase().logManager.log)
-          .catch(Flimi.AppBase().logManager.error);
-      } else {
-        const db = await wx.cloud.database();
-        await db.collection('user_post_pins').add({
-          data: {
-            postId,
-            nickName,
-            avatarUrl,
-            createdAt: Date.now(),
           },
         })
-          .then(res => {
-            if (res && res.errMsg === 'collection.add:ok') {
-              that.setData({
-                isPined: true,
-              });
-            }
-          });
+          .then(Flimi.AppBase().logManager.log)
+          .catch(Flimi.AppBase().logManager.error);
       }
     },
 

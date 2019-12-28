@@ -1,0 +1,43 @@
+/* components/launchapp/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100%;
+  padding: 32rpx;
+  box-sizing: border-box;
+  margin: 0 0 32rpx;
+  border: 1px solid #eee;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 900;
+  line-height: 48rpx;
+  color: #fff;
+}
+
+.content-container {
+  align-items: center;
+  padding: 24rpx 32rpx;
+  width: 100%;
+}
+
+.en-container {
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: #fff;
+  width: 100;
+  padding: 0 0 16rpx;
+  border-bottom: 1px solid rgba($color: #fff, $alpha:  .1);
+}
+
+.cn-container {
+  font-size: 32rpx;
+  font-weight: 300;
+  line-height: 48rpx;
+  color: #eee;
+  width: 100;
+  padding: 16rpx 0 0;
+}
+

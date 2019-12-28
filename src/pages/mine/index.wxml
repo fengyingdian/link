@@ -17,13 +17,15 @@
       <preview
         style="width:100%"
         postId="{{item._id}}"
+        authorId="{{item._openid}}"
         author="{{item.author}}"
         title="{{item.title}}"
         description="{{item.description}}"
         images="{{item.images}}"
         audio="{{item.audio}}"
         createdAt="{{item.createdAt}}"
-        bind:play="onAudioPlay"
+        catch:play="onAudioPlay"
+        catch:remove="onRemove"
         />
     </block>
   </view>

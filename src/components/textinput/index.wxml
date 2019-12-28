@@ -1,5 +1,5 @@
 <!-- components/posterview/index.wxml -->
-<view class="container" catch:tap="onDoNothing" style="top:-{{keyboardHeight}}px">
+<view class="col-center container" catch:tap="onDoNothing" style="top:-{{keyboardHeight}}px">
   <input
     class="input"
     cursor-spacing="500"

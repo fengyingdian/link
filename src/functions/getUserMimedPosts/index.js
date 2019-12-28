@@ -44,22 +44,23 @@ exports.main = async (event) => {
           });
         }
       });
+    const _ = db.command;
     const result = await Promise.all(posts.map(({ postId, mimes }) => db.collection('user_posts').where({
       _id: postId,
+      isRemoved: _.or([_.exists(false), _.eq(false)]),
     })
       .get()
+      // eslint-disable-next-line consistent-return
       .then((res) => {
         if (res && res.data && res.data.length > 0) {
           return {
             ...res.data[0],
-            mimes: {
-              ...mimes,
-            },
+            mimes,
           };
         }
         return {};
       })));
-    return result;
+    return result.filter(({ mimes = [] }) => mimes.length > 0);
   } catch (e) {
     console.error(e);
   }

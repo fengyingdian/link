@@ -6,6 +6,7 @@
     "audioplayer": "/components/audioplayerwithoptions/index",
     "imagedisplay": "/components/imagedisplywithactions/index",
     "voicerecorder": "/components/voicerecorder/index",
+    "wordselectitem": "/components/wordselectitem/index",
     "actionbutton": "/components/actionbutton/index"
   },
   "enablePullDownRefresh": false

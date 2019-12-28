@@ -1,0 +1,20 @@
+@import '../../common/scss/common.scss';
+.container {
+  position: fixed;
+  top: 0;
+  left: 16px;
+  z-index: 0;
+  align-items: center;
+  overflow: hidden;
+  .item-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    // background: rgba($color: #eee, $alpha: 0.3);
+    .image {
+      width: 21px;
+      height: 21px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<!--components/launchapp/index.wxml-->
+<view class="row-start container">
+  <view class="content-container">
+    <view class="en-container"> {{en}} </view>
+    <view class="cn-container"> {{cn}} </view>
+  </view>
+  <image class="remove" src="/assets/icons/minus.png" catch:tap="onRemove"/>
+</view>

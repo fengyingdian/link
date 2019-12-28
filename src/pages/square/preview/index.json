@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "imagedisplay": "/components/imagedisplay/index",
+    "multimagedisplay": "/components/multimagedisplay/index",
     "audioplayer": "/components/audioplayer/index"
   },
   "component": true

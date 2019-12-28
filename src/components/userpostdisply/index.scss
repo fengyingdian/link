@@ -1,0 +1,34 @@
+.post-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title-container {
+  width: 100%;
+  font-size: 40rpx;
+  font-weight: 900;
+  line-height: 60rpx;
+  text-align: left;
+  color: #fff;
+  margin: 0 0 24rpx;
+}
+
+.description-container {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  margin: 0 0 32rpx;
+  color: #eee;
+}
+
+.image-container {
+  align-items: center;
+  width: 100%;
+  margin: 0 0 24rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  padding: 32rpx;
+  background: rgba(240,240,240,0.3);
+}

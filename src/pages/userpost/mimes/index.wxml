@@ -6,12 +6,14 @@
     <preview
       style="width:100%"
       mimeId="{{item._id}}"
+      authorId="{{item._openid}}"
       author="{{item.author}}"
       text="{{item.text}}"
       images="{{item.images}}"
       audio="{{item.audio}}"
       createdAt="{{item.createdAt}}"
-      bind:play="onAudioPlay"
+      catch:play="onAudioPlay"
+      catch:remove="onRemove"
       />
   </block>
 </view>

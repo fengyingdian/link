@@ -8,7 +8,7 @@
     />
   <view
     class="delete col-center"
-    catch:tap="onDelete"
+    catch:tap="onRemove"
     >
     <image
       style="width:100%;height:100%;"

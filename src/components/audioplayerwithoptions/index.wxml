@@ -10,7 +10,7 @@
   </view>
   <text class="number" style="flex:1"> {{timer}} </text>
   <text class="number"> {{durationTimer}} </text>
-  <view class="col-center action" catch:tap="onDelete">
+  <view class="col-center action" catch:tap="onRemove">
     <image
       class="icon"
       style="align-self"

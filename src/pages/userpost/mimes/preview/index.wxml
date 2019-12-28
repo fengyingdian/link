@@ -1,8 +1,16 @@
 <view class="col-start container">
   <view class="col-start content-container" bind:tap="onReply">
     <view class="row-start user-container">
-      <image class="user-avatar" src="{{author.avatarUrl}}" />
-      <text class="overflow-line-1 user-nickname"> {{author.nickName}} </text>
+      <image
+        class="user-avatar"
+        src="{{author.avatarUrl}}" />
+      <text
+        class="overflow-line-1 user-nickname"
+        style="flex:1"> {{author.nickName}} </text>
+      <image
+        catch:tap="onMore"
+        class="option-image"
+        src="/assets/icons/more.png" />
     </view>
     <view wx:if="{{text}}" class="text-container">
       {{text}}
@@ -31,8 +39,8 @@
       bind:play="onPlay" />
     <view class="row-start option-container">
       <text class="option-text"> {{timer}} </text>
-      <image class="option-image" src="/assets/icons/more.png" />
     </view>
+
     <view wx:if="{{replys.length > 0}}" class="col-start replys-container">
       <block
         wx:for="{{replys}}"
@@ -40,6 +48,7 @@
         wx:key="index">
         <replys
           style="width:100%"
+          authorId="{{item._openid}}"
           replyId="{{item._id}}"
           replyAuthor="{{item.replyAuthor}}"
           author="{{item.author}}"
@@ -50,8 +59,10 @@
           isShowSplitLine="{{index !== replys.length -1}}"
           catch:play="onAudioPlay"
           catch:reply="onReply"
+          catch:remove="onRemoveReply"
           />
       </block>
     </view>
+
   </view>
 </view>

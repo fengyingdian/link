@@ -1,9 +1,16 @@
 <view class="col-start container">
   <view class="col-start content-container" bind:tap="onDetail">
     <view class="row-start user-container">
-      <image class="user-avatar" src="{{author.avatarUrl}}" />
-      <text class="overflow-line-1 user-nickname"> {{author.nickName}} </text>
-      <text class="overflow-line-1 user-time"> {{timer}} </text>
+      <image
+        class="user-avatar"
+        src="{{author.avatarUrl}}" />
+      <text
+        class="overflow-line-1 user-nickname"
+        style="flex:1"> {{author.nickName}} </text>
+      <image
+        catch:tap="onMore"
+        class="option-image"
+        src="/assets/icons/more.png" />
     </view>
     <view wx:if="{{title}}" class="title-container">
       {{title}}
@@ -21,7 +28,6 @@
       bind:play="onPlay" />
     <view class="row-start option-container">
       <text class="option-text"> {{timer}} </text>
-      <image class="option-image" src="/assets/icons/more.png" />
     </view>
   </view>
 </view>

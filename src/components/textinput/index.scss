@@ -3,22 +3,24 @@
 
 .container {
   align-items: center;
-  background: #fff;
   width: 100%;
-  margin: 32rpx 0;
+  padding: 32rpx 32rpx 0;
+  box-sizing: border-box;
 }
 
 .input {
-  color: #999;
-  padding: 0 32rpx;
-  width: 622rpx;
+  color: #444;
+  width: 100%;
+  padding: 32rpx;
   line-height: 40rpx;
-  height: 104rpx;
   font-size: 28rpx;
   text-align: left;
   position: relative;
-  z-index: 20;
-  background: #eee;
+  box-sizing: border-box;
+  z-index: 8;
+  height: 120rpx;
+  background: rgba(0,0,0,.1);
+  border-radius: 16rpx;
 }
 
 .placeholder {

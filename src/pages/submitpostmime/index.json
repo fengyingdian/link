@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "navigatebar": "/components/navigatebar/index",
+    "navigateback": "/components/navigateback/index",
+    "userpostdisply": "/components/userpostdisply/index",
     "submit": "./submit/index"
   },
   "enablePullDownRefresh": false

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigatebar": "/components/navigatebar/index",
+    "wordselectitem": "/components/wordselectitem/index",
+    "mp-searchbar": "/wx-components/searchbar/index"
+  },
+  "enablePullDownRefresh": false
+}

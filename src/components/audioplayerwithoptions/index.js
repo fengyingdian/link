@@ -30,7 +30,7 @@ Component({
         this.play();
       }
     },
-    onDelete() {
+    onRemove() {
       this.stop();
       this.triggerEvent('delete');
     },

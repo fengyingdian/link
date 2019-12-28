@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "audioplayer": "/components/audioplayer/index",
+    "imagedisplay": "/components/imagedisplay/index",
+    "wordlist": "/components/wordlist/index"
+  },
+  "component": true
+}

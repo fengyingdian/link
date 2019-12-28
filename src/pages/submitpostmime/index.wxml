@@ -1,6 +1,25 @@
-<navigatebar title="{{navigateTitle}}" />
+<navigateback />
 
 <view class="col-center container">
+  <view
+    class="header-container"
+    style="transform:translateY({{isShowPost ? '0' : postHideCalc}});-webkit-transform:translateY({{isShowPost ? '0' : postHideCalc}})">
+    <view style="width:100vw;height:{{statusBar + 45}}px" />
+    <userpostdisply
+      style="width:100%;"
+      title="{{title}}"
+      description="{{description}}"
+      audio="{{audio}}"
+      images="{{images}}"
+      words="{{words}}" />
+    <view
+      class="col-center action-container"
+      style="height:{{statusBar + 45}}px">
+      <button
+        class="col-center action-button"
+        bind:tap="onAction"> {{isShowPost ? 'show' : 'hide'}} </button>
+    </view>
+  </view>
   <submit
     bind:submit="onSubmit"
     />

@@ -8,14 +8,14 @@ cloud.init({
 const db = cloud.database();
 // eslint-disable-next-line consistent-return
 exports.main = async (event) => {
-  const { postId, visitors } = event;
+  const { mimeId, isRemoved = false } = event;
   try {
-    return await db.collection('user_posts').where({
-      _id: postId,
+    return db.collection('user_post_mimes').where({
+      _id: mimeId,
     })
       .update({
         data: {
-          visitors,
+          isRemoved,
         },
       });
   } catch (e) {

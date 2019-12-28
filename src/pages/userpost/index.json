@@ -2,8 +2,7 @@
   "component": true,
   "usingComponents": {
     "navigatebar": "/components/navigatebar/index",
-    "audioplayer": "/components/audioplayer/index",
-    "imagedisplay": "/components/imagedisplay/index",
+    "userpostdisply": "/components/userpostdisply/index",
     "visitors": "./visitors/index",
     "mimes": "./mimes/index"
   },

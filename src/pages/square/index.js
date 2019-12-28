@@ -34,17 +34,18 @@ Component({
   methods: {
     async loadPreviews() {
       const that = this;
-      const db = await wx.cloud.database();
-      await db.collection('user_posts')
-        .orderBy('createdAt', 'desc')
-        // .where({
-        //   _openid: wx.appContext.OPENID,
-        // })
-        .get()
+      return wx.cloud.callFunction({
+        name: 'getSquarePosts',
+        data: {
+          openId: wx.appContext.OPENID,
+        },
+      })
         .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
+          if (res && res.errMsg === 'cloud.callFunction:ok' && res.result.length > 0) {
             that.setData({
-              previews: res.data,
+              previews: [
+                ...res.result,
+              ],
             });
           }
         });

@@ -45,7 +45,7 @@ Component({
     offsetLeft: 0,
 
     // select list
-    selects: ['post', 'mime', 'pin'],
+    selects: ['post', 'mime'],
 
     selectCursorTitle: 'post',
   },
@@ -53,17 +53,18 @@ Component({
   methods: {
     async loadPosts() {
       const that = this;
-      const db = await wx.cloud.database();
-      await db.collection('user_posts')
-        .orderBy('createdAt', 'desc')
-        .where({
-          _openid: wx.appContext.OPENID,
-        })
-        .get()
+      return wx.cloud.callFunction({
+        name: 'getUserPosts',
+        data: {
+          openId: wx.appContext.OPENID,
+        },
+      })
         .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
+          if (res && res.errMsg === 'cloud.callFunction:ok' && res.result.length > 0) {
             that.setData({
-              previews: res.data,
+              previews: [
+                ...res.result,
+              ],
             });
           }
         });
@@ -72,7 +73,7 @@ Component({
     async loadMimedPosts() {
       const that = this;
       return wx.cloud.callFunction({
-        name: 'getUserMimedPost',
+        name: 'getUserMimedPosts',
         data: {
           openId: wx.appContext.OPENID,
         },
@@ -83,24 +84,6 @@ Component({
               previews: [
                 ...res.result,
               ],
-            });
-          }
-        });
-    },
-
-    async loadPinedPosts() {
-      const that = this;
-      const db = await wx.cloud.database();
-      await db.collection('user_post_pins')
-        .orderBy('createdAt', 'desc')
-        .where({
-          _openid: wx.appContext.OPENID,
-        })
-        .get()
-        .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
-            that.setData({
-              previews: res.data,
             });
           }
         });
@@ -120,6 +103,29 @@ Component({
       });
     },
 
+    onRemove(opts) {
+      const that = this;
+      const { previews = [] } = this.data;
+      const { detail: { postId = '' } = {} } = opts || {};
+      wx.cloud.callFunction({
+        name: 'updateUserPostStatus',
+        data: {
+          postId,
+          isRemoved: true,
+        },
+      })
+        .then((res) => {
+          if (res && res.errMsg === 'cloud.callFunction:ok') {
+            that.setData({
+              previews: [
+                ...previews.filter(({ _id: id }) => id !== postId),
+              ],
+            });
+          }
+        })
+        .catch(Flimi.AppBase().logManager.error);
+    },
+
     async onSelectChange(opts) {
       Flimi.AppBase().logManager.log({ opts });
       const {
@@ -134,8 +140,6 @@ Component({
         this.loadPosts();
       } else if (title === 'mime') {
         this.loadMimedPosts();
-      } else if (title === 'pin') {
-        this.loadPinedPosts();
       }
       setTimeout(() => {
         this.setData({

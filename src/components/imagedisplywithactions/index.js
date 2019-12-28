@@ -9,7 +9,7 @@ Component({
   data: {},
 
   methods: {
-    onDelete() {
+    onRemove() {
       const { filePath = '' } = this.data;
       this.triggerEvent('delete', {
         filePath,

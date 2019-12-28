@@ -1,4 +1,5 @@
 import { formatTime } from '../../../utils/util';
+import { showActionSheet } from '../../../service/wxpromisify';
 
 Component({
   properties: {
@@ -6,11 +7,19 @@ Component({
       type: String,
       value: '',
     },
+    authorId: {
+      type: String,
+      value: '',
+    },
     author: {
       type: Object,
       value: {},
     },
-    text: {
+    title: {
+      type: String,
+      value: 'hello world',
+    },
+    description: {
       type: String,
       value: 'hello world',
     },
@@ -44,20 +53,34 @@ Component({
 
   methods: {
     onPlay() {
-      const { postId } = this.data;
+      const { postId = '' } = this.data;
       this.triggerEvent('play', { id: postId });
     },
 
-    onImagePreview(opts) {
-      const { postId } = this.data;
-      this.triggerEvent('imagepreview', { id: postId, ...opts.detail });
-    },
-
     onDetail() {
-      const { postId } = this.data;
+      const { postId = '' } = this.data;
       wx.navigateTo({
         url: `/pages/userpost/index?postId=${postId}`,
       });
+    },
+
+    onMore() {
+      const that = this;
+      const { authorId = '' } = that.data || {};
+      const { OPENID = '' } = wx.appContext;
+      if (authorId === OPENID) {
+        showActionSheet({ itemList: ['delete'] })
+          .then(({ tapIndex = -1 }) => {
+            if (tapIndex === 0) {
+              that.onRemovePost();
+            }
+          });
+      }
+    },
+
+    onRemovePost() {
+      const { postId = '' } = this.data;
+      this.triggerEvent('remove', { postId });
     },
   },
 });

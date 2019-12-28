@@ -5,3 +5,25 @@
   align-items: center;
   width: 100vw;
 }
+
+.header-container {
+  align-items: center;
+  width: 100%;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #e66465, #9198e5);
+  transition: all .3s;
+}
+
+.action-container {
+  align-self: center;
+  align-items: center;
+}
+
+.action-button {
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 28px;
+  text-align: center;
+  color: #fff;
+}

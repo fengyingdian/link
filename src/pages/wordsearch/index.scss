@@ -1,0 +1,53 @@
+/* pages/vcomment/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.login {
+  padding: 16rpx 48rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 300;
+  line-height: 40rpx;
+  background: #f52828;
+}
+
+.words-container {
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  margin: 64rpx 0 128rpx;
+}
+
+
+.button-container {
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 0;
+  position: fixed;
+  bottom: 0;
+}
+
+.submit-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 300;
+  height: 48px;
+  color: #fff;
+  background: #f52828;
+  flex: 1;
+  border-radius: 100px;
+  box-sizing: border-box;
+  margin: 0 16px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+}

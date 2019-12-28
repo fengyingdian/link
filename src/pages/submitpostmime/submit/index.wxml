@@ -1,7 +1,7 @@
 <view
   class="col-start container">
-  <view style="width:100vw;height:{{statusBar + 45}}px" />
   <multitextinput
+    style="width:100%"
     focus="{{false}}"
     placeholder="{{'mime'}}"
     bind:change="onInputChange" />
@@ -16,7 +16,7 @@
       src="{{tempFilePath}}"
       duration="{{duration}}"
       fileSize="{{fileSize}}"
-      bind:delete="onDeleteAudio"/>
+      bind:delete="onRemoveAudio"/>
     <view class="{{images && images.length === 4 ? 'row-space-between' : 'row-start'}} image-container">
       <view
         wx:for="{{images}}"
@@ -27,7 +27,7 @@
           style="100%"
           index="{{index}}"
           filePath="{{item}}"
-          bind:delete="onDeleteImage"
+          bind:delete="onRemoveImage"
           />
       </view>
     </view>

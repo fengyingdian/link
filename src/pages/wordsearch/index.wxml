@@ -1,0 +1,31 @@
+
+<navigatebar title="{{navigateTitle}}" status="{{1}}"/>
+
+<view
+  class="col-start container">
+  <view style="width:100%;height:{{statusBar + 45}}px" />
+  <mp-searchbar
+    style="width:100%"
+    bindselectresult="selectResult"
+    search="{{search}}"></mp-searchbar>
+  <view class="col-end words-container">
+    <wordselectitem
+      wx:for="{{words}}"
+      wx:key="index"
+      style="width:100%"
+      index="{{index}}"
+      en="{{item.text}}"
+      cn="{{item.text}}"
+      catch:remove="onRemove"
+      />
+  </view>
+</view>
+
+<view class="row-start button-container">
+  <button class="submit-button" disabled="{{false}}" bind:tap="onSubmit">
+    <image
+      class="icon"
+      src="/assets/icons/submit.png"
+      />
+  </button>
+</view>

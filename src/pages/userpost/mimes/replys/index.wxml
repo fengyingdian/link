@@ -1,5 +1,5 @@
 <view class="col-start container">
-  <view class="col-start content-container" catch:tap="onReply">
+  <view class="col-start content-container" catch:tap="onMore">
     <view class="row-start user-container">
       <text class="user-text"> {{author.nickName}} </text>
       <block wx:if="{{replyAuthor && replyAuthor.nickName}}">
@@ -34,7 +34,6 @@
       catch:play="onPlay" />
     <view class="row-start option-container" style="{{isShowSplitLine ? 'border-bottom: 1px solid #ddd' : ''}}">
       <text class="option-text"> {{timer}} </text>
-      <image class="option-image" src="/assets/icons/more.png" />
     </view>
   </view>
 </view>

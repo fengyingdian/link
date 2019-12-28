@@ -145,7 +145,7 @@ Component({
       }
     },
 
-    onDeleteAudio() {
+    onRemoveAudio() {
       const { actions = {} } = this.data;
       actions.audio.isShow = true;
       this.setData({
@@ -163,7 +163,7 @@ Component({
       this.upload();
     },
 
-    onDeleteImage(opts) {
+    onRemoveImage(opts) {
       const { detail: { filePath = '' } = {} } = opts;
       this.delete(filePath);
     },

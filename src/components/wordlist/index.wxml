@@ -1,0 +1,11 @@
+<!--components/launchapp/index.wxml-->
+<view class="col-start container">
+  <view class="title"> {{'vocabulary'}} </view>
+  <view
+    wx:for="{{words}}"
+    wx:key="{{index}}"
+    class="content-container">
+    <view class="en-container"> {{item.text}} </view>
+    <view class="cn-container"> {{item.text}} </view>
+  </view>
+</view>

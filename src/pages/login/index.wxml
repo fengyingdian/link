@@ -1,4 +1,3 @@
-<!-- pages/vcomment/index.wxml -->
 
 <navigatebar
   isShowGoBack="{{isShowGoBack}}"

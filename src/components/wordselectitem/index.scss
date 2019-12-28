@@ -1,0 +1,44 @@
+/* components/launchapp/index.wxss */
+@import '../../common/scss/common.scss';
+
+.container {
+  align-items: center;
+  width: 100%;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.content-container {
+  flex: 1;
+  align-items: center;
+  margin: 0 12rpx 0 0;
+  border: 1px solid #333;
+  padding: 24rpx 32rpx;
+  border-radius: 16rpx;
+}
+
+.en-container {
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: #444;
+  width: 100;
+  padding: 0 0 16rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.cn-container {
+  font-size: 32rpx;
+  font-weight: 300;
+  line-height: 48rpx;
+  color: #999;
+  width: 100;
+  padding: 16rpx 0 0;
+}
+
+.remove {
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid #333;
+  align-self: flex-start;
+}
+

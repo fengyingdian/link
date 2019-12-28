@@ -8,6 +8,9 @@ Component({
     actions: {
       type: Object,
       value: {
+        word: {
+          name: 'word', isShow: true, icon: '/assets/icons/vocabulary.png', action: 'onWord',
+        },
         audio: {
           name: 'audio', isShow: true, icon: '/assets/icons/audio.png', action: 'onAudio',
         },
@@ -132,7 +135,7 @@ Component({
       }
     },
 
-    onDeleteAudio() {
+    onRemoveAudio() {
       const { actions = {} } = this.data;
       actions.audio.isShow = true;
       this.setData({
@@ -150,9 +153,37 @@ Component({
       this.upload();
     },
 
-    onDeleteImage(opts) {
+    onRemoveImage(opts) {
       const { detail: { filePath = '' } = {} } = opts;
       this.delete(filePath);
+    },
+
+    //
+    // ─── WORD ────────────────────────────────────────────────────────
+    //
+    onWord() {
+      const that = this;
+      const { words = [] } = that.data;
+      wx.getSearchedWordListCallBack = (res) => {
+        that.setData({
+          words: [
+            ...res,
+          ],
+        });
+      };
+      wx.navigateTo({
+        url: `/pages/wordsearch/index?words=${words}`,
+      });
+    },
+
+    onRemoveWord(opts) {
+      const { index = 0 } = opts.detail;
+      const { words = [] } = this.data;
+      this.setData({
+        words: [
+          ...words.filter((_, i) => i !== index),
+        ],
+      });
     },
 
     //
@@ -160,19 +191,25 @@ Component({
     //
     async onSubmit() {
       const {
-        tempFilePath = '', duration, fileSize, images = [], title = '', description = '',
+        title = '',
+        description = '',
+        tempFilePath = '',
+        duration = 0,
+        fileSize = 0,
+        images = [],
+        words = [],
       } = this.data;
       if (!title) {
-        wx.showToast({
-          title: '请添加标题',
-          icon: 'none',
-          duration: 1500,
-          mask: false,
-        });
+        wx.showToast({ title: '请添加标题' });
+        return;
+      }
+      if (!description) {
+        wx.showToast({ title: '请添加介绍' });
         return;
       }
       const { userInfo = {} } = getApp().globalData;
       if (!userInfo.nickName) {
+        Flimi.AppBase().logManager.error('login error');
         return;
       }
 
@@ -192,6 +229,9 @@ Component({
         },
         images: [
           ...fileIds,
+        ],
+        words: [
+          ...words,
         ],
       });
     },

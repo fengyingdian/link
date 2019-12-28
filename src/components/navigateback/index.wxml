@@ -1,0 +1,10 @@
+<!--components/tabtop/index.wxml-->
+<view class="col-center container" style="top:{{statusBar}}px">
+  <view class="col-center item-box"
+    catchtap="tapGoBack">
+    <image
+      class="image"
+      style="width:23px;height:23px;"
+      src="/assets/icons/return.png"/>
+  </view>
+</view>

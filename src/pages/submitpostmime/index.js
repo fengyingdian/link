@@ -1,17 +1,33 @@
+import { userpostinfo } from '../../behavior/userpostinfo/index';
+
 Component({
-  behaviors: [],
+  behaviors: [userpostinfo],
   properties: {
     postId: {
       type: String,
       value: '',
+      observer(val) {
+        if (val) {
+          this.getPostData();
+        }
+      },
     },
   },
   data: {
-    navigateTitle: 'submit mime',
-  },
-  methods: {
-    onReady() {},
+    // status bar height, for margin top
+    statusBar: wx.getSystemInfoSync().statusBarHeight,
 
+    // navigate z-index fro some reasons
+    // we need to set navigate bar's z-index to  0
+    navigateTitle: '',
+    navigateIndexZ: 10,
+
+    //
+    isShowPost: true,
+    postHideCalc: `calc(${wx.getSystemInfoSync().statusBarHeight + 45}px - 100%)`,
+  },
+
+  methods: {
     async onSubmit(opts) {
       const {
         userInfo,
@@ -53,6 +69,12 @@ Component({
             title: '添加练习失败',
           });
         });
+    },
+
+    onAction() {
+      this.setData({
+        isShowPost: !this.data.isShowPost,
+      });
     },
   },
 });

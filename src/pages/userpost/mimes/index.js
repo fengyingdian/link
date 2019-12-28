@@ -34,21 +34,18 @@ Component({
         return;
       }
       const that = this;
-      const db = await wx.cloud.database();
-      await db.collection('user_post_mimes')
-        .orderBy('createdAt', 'desc')
-        .where({
+      wx.cloud.callFunction({
+        name: 'getPostMimes',
+        data: {
           postId,
-        })
-        .get()
+        },
+      })
         .then(res => {
-          if (res && res.errMsg === 'collection.get:ok' && res.data.length > 0) {
+          if (res && res.errMsg === 'cloud.callFunction:ok' && res.result.length > 0) {
             that.setData({
-              previews: res.data,
-            });
-          } else {
-            that.setData({
-              previews: {},
+              previews: [
+                ...res.result,
+              ],
             });
           }
         });
@@ -67,6 +64,29 @@ Component({
         previews,
       });
       this.triggerEvent('play');
+    },
+
+    onRemove(opts) {
+      const that = this;
+      const { previews = [] } = this.data;
+      const { detail: { mimeId = '' } = {} } = opts || {};
+      wx.cloud.callFunction({
+        name: 'updatePostMimeStatus',
+        data: {
+          mimeId,
+          isRemoved: true,
+        },
+      })
+        .then((res) => {
+          if (res && res.errMsg === 'cloud.callFunction:ok') {
+            that.setData({
+              previews: [
+                ...previews.filter(({ _id: id }) => id !== mimeId),
+              ],
+            });
+          }
+        })
+        .catch(Flimi.AppBase().logManager.error);
     },
   },
 });

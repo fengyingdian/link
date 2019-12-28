@@ -24,3 +24,5 @@ export const getSetting = wxPromisify(wx.getSetting);
 export const authorize = wxPromisify(wx.authorize);
 
 export const startGyroscope = wxPromisify(wx.startGyroscope);
+
+export const showActionSheet = wxPromisify(wx.showActionSheet);

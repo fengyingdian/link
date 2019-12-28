@@ -10,7 +10,7 @@ const db = cloud.database();
 exports.main = async (event) => {
   const { openId, userInfo } = event;
   try {
-    return await db.collection('wechat_users').where({
+    return db.collection('wechat_users').where({
       _openid: openId,
     })
       .update({
